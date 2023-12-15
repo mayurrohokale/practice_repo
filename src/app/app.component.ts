@@ -6,8 +6,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'practice';
-  msg = 'interpolation is one way data binding technique used to output the data from .ts to .html';
-
-  val = 'Hello';
+  samp = '/assets/image.jpg';
 }

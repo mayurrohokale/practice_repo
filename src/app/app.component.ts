@@ -7,4 +7,5 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'practice';
+  msg = 'interpolation is one way data binding technique used to output the data from .ts to .html';
 }

@@ -7,9 +7,7 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
 
-  isDisabled = false;
-  
-    title = 'Hello';
+  val = 'mayur';
 
 
 }

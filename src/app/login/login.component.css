@@ -1,0 +1,11 @@
+/* .container {
+    height: 250px;
+    width: 350px;
+    justify-content: center;
+    margin-left: 550px;
+    border: solid;
+} */
+.example-container mat-form-field + mat-form-field {
+    margin-left: 8px;
+  }
+  

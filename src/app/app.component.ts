@@ -11,7 +11,11 @@ import { Directive } from '@angular/core';
 
 export class AppComponent {
 
- staticInput:string = 'static two way binding';
- dynamicInput:string = '';
-  
+    val = '';
+
+
+
+
 }
+
+

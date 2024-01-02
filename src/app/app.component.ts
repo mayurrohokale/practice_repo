@@ -11,12 +11,7 @@ import { Directive } from '@angular/core';
 
 export class AppComponent {
 
-  val:string = '';
-  count:string='';
-
-  isshift()
-  {
-    console.log("shift + Yis pressed");
-  }
+ staticInput:string = 'static two way binding';
+ dynamicInput:string = '';
   
 }

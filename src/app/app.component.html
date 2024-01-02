@@ -1,1 +1,4 @@
-<input type="text" (keydown.shift.y)="isshift()">
+<input type="text" [(ngModel)]="staticInput">
+<input type="text" [(ngModel)]="dynamicInput">
+
+<h1>{{dynamicInput}}</h1>

@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { Directive, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -11,13 +11,15 @@ import { LoginComponent } from './login/login.component';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ExampleDirective } from './example.directive';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     SignupComponent,
-    DemoComponent
+    DemoComponent,
+    ExampleDirective
   ],
   imports: [
     BrowserModule,

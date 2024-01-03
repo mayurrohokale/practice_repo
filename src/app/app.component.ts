@@ -11,26 +11,7 @@ import { Directive } from '@angular/core';
 
 export class AppComponent {
 
-  display:boolean = false;
-
-  
-
-  fullstackDev = [{
-    id:1,
-    name : 'angular'
-  },
-  {
-    id:2,
-    name : 'React'
-  },
-  {
-    id:3,
-    name : 'Node.js'
-  },
-  {
-    id:4,
-    name : 'Mongo'
-  }]
+  age:any;
 }
 
 

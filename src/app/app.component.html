@@ -1,13 +1,12 @@
-<button (click)="display = !display">show list</button>
 
-<div *ngIf="display">
-    <div *ngFor="let value of fullstackDev">
-        <ul>
-            <li>id: {{value.id}}</li>
-            <li>Name: {{value.name}}</li>
-            
-        </ul>
-    </div>
+<input type="text" [(ngModel)]="age">
+
+<div [ngSwitch]="age">
+    <p *ngSwitchCase="10">the persons age is 10 years old</p>
+    <p *ngSwitchCase="20">the persons age is 20 years old</p>
+    <p *ngSwitchCase="30">the persons age is 30 years old</p>
+    <p *ngSwitchCase="40">the persons age is 40 years old</p>
+
 </div>
 
 

@@ -11,11 +11,11 @@ import { Directive } from '@angular/core';
 
 export class AppComponent {
 
-    val = '';
-
-
-
-
+  display: boolean=false;
+show()
+{
+  this.display = !this.display;
+}
 }
 
 

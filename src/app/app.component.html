@@ -1,2 +1,13 @@
-<button (click)="show()">show</button>
-<div *ngIf="display">Button is clicked</div>
+<button (click)="display = !display">show list</button>
+
+<div *ngIf="display">
+    <div *ngFor="let value of fullstackDev">
+        <ul>
+            <li>id: {{value.id}}</li>
+            <li>Name: {{value.name}}</li>
+            
+        </ul>
+    </div>
+</div>
+
+

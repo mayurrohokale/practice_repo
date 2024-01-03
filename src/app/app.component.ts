@@ -11,7 +11,10 @@ import { Directive } from '@angular/core';
 
 export class AppComponent {
 
-  age:any;
+
+  applyval = {
+    'font-style':'italic'
+  }
 }
 
 

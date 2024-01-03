@@ -1,0 +1,17 @@
+.updatestyle {
+    color: red;
+}
+
+.italicText {
+    font-style: italic;
+}
+
+input {
+    width: 200px;
+    height: 25px;
+}
+
+input.txt {
+    background-color: aqua;
+}
+

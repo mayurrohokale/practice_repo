@@ -1,18 +1,6 @@
-<form *ngIf="!formSubmitted">
-    <h1>Submit Form</h1>
-    <div class="form-group">
-        <label for="name">Name</label>
-        <input type="text" name="name" [(ngModel)]="nm" [ngStyle]="{'background-color': nm ? 'lightgreen' : '#ffb6c1'}" required>
+<<ng-container *ngFor="let subject of subjectlist">
+    <div *ngIf="subject.subcode">
+        <span>subject code : {{subject.subcode}},</span>
+        <span>subject name : {{subject.name}}</span>
     </div>
-
-    <div class="form-group">
-        <label for="email">Email</label>
-        <input type="email" name="email" [(ngModel)]="em" [ngStyle]="{'background-color': emailIsValid ? 'lightgreen' : '#ffb6c1'}" 
-        (input)="checkEmailValidation(em)" required
-        />
-    </div>
-
-    <button type="submit" (click)="showMessage()">Submit</button>
-</form>
-
-<p *ngIf="formSubmitted">Form is Submitted</p>
+</ng-container >

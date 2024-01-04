@@ -1,6 +1,8 @@
-<<ng-container *ngFor="let subject of subjectlist">
-    <div *ngIf="subject.subcode">
-        <span>subject code : {{subject.subcode}},</span>
-        <span>subject name : {{subject.name}}</span>
-    </div>
-</ng-container >
+<ng-container *ngIf="isauthorize; else notauthorize" >
+    <p>Autorize User</p>
+
+</ng-container>
+
+<ng-template #notauthorize>
+    <h2>Not Authorize</h2>
+</ng-template>

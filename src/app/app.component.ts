@@ -11,19 +11,7 @@ import { Directive } from '@angular/core';
 
 export class AppComponent {
 
-    subjectlist = [
-      {
-        subcode : 101,
-        name :  'javascript',
-      },
-      {
-        // subcode : 102,
-        name :  'c++',
-      },
-      {
-        subcode : 103,
-        name :  'datastructure',
-      },
-    ]
+    isauthorize:boolean = false;
+    
 }
 

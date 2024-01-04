@@ -1,8 +1,13 @@
-<ng-container *ngIf="isauthorize; else notauthorize" >
-    <p>Autorize User</p>
+<div>
+    <div>
+        <input type="text" [(ngModel)]="user">
+        <label>Enter Name</label>
 
-</ng-container>
+    </div>
+    <ng-container *ngIf="user !== ''; else notvalid " >
 
-<ng-template #notauthorize>
-    <h2>Not Authorize</h2>
-</ng-template>
+    </ng-container>
+    <ng-template #notvalid>
+        <h3>please enter name</h3>
+    </ng-template>
+</div>

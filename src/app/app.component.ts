@@ -11,7 +11,7 @@ import { Directive } from '@angular/core';
 
 export class AppComponent {
 
-    isauthorize:boolean = false;
-    
+    user = '';
+
 }
 

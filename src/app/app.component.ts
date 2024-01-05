@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Directive } from '@angular/core';
 @Component({
   selector: 'app-root',
@@ -9,14 +9,25 @@ import { Directive } from '@angular/core';
 
 
 
-export class AppComponent {
+export class AppComponent implements OnInit {
 
- inputValue: string = 'new Value';
+count : number = 0;
 
 
- updateValue(){
-  this.inputValue = "app component";
- }
+ngOnInit(): void {
+  this.startCounter();
+}
+startCounter(){
+  setInterval(()=>{
+    if(this.count <= 5){
+      console.log(this.count++);
+    }
+  },1000);
+}
+
+
+
+
 //  constructor(){
 //   console.log("calling from constructor - ",this.inputValue)
 //  }

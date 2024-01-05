@@ -11,7 +11,24 @@ import { Directive } from '@angular/core';
 
 export class AppComponent {
 
-    user = '';
+  nm = '';
+    em = '';
+    ph ='';
+    add = '';
 
+    submitted: boolean = false;
+    qualification = [{school:'', degree:'', year:''}];
+
+    addqualification(){
+      this.qualification.push({school:'', degree:'', year:''});
+    }
+
+    submit() {
+      this.submitted = true;
+    }
+
+    edit(){
+        this.submitted =false;
+    }
 }
 

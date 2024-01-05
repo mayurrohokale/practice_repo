@@ -11,24 +11,14 @@ import { Directive } from '@angular/core';
 
 export class AppComponent {
 
-  nm = '';
-    em = '';
-    ph ='';
-    add = '';
+ inputValue: string = 'new Value';
 
-    submitted: boolean = false;
-    qualification = [{school:'', degree:'', year:''}];
 
-    addqualification(){
-      this.qualification.push({school:'', degree:'', year:''});
-    }
-
-    submit() {
-      this.submitted = true;
-    }
-
-    edit(){
-        this.submitted =false;
-    }
+ updateValue(){
+  this.inputValue = "app component";
+ }
+//  constructor(){
+//   console.log("calling from constructor - ",this.inputValue)
+//  }
 }
 

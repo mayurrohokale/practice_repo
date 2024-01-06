@@ -1,7 +1,9 @@
-<h2>Component Updation Hooks</h2>
-
+<h1>Commponent Updation Hook</h1>
 <div>
-    <app-demo [user]="user"></app-demo>
+    <h2>Parent Component</h2>
+    <button (click)="sendDatatoChild()">Generate Number</button>
 
-    <button (click)="changeusername()">Change user name</button>
+    <app-demo>
+        <h3>{{dataFromParent}}</h3>
+    </app-demo>
 </div>

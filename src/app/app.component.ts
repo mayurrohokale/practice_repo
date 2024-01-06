@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { AfterContentInit, Component, OnInit } from '@angular/core';
 import { Directive } from '@angular/core';
 @Component({
   selector: 'app-root',
@@ -9,14 +9,15 @@ import { Directive } from '@angular/core';
 
 
 
-export class AppComponent  {
+export class AppComponent implements AfterContentInit {
 
- user = {
-  name : 'ABC'
- };
- changeusername(){
-  this.user.name = 'XYZ'
- }
+dataFromParent = '';
+ngAfterContentInit(): void {
+  console.log("ngAfterContentInit was invoked.....");}
+sendDatatoChild():void{
+  let random = Math.floor(Math.random()*10);
+  this.dataFromParent = "Random Number: "+random;
+}
 
 
 

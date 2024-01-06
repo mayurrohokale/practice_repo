@@ -11,9 +11,6 @@ export class DemoComponent implements DoCheck {
   private previousUsername: string | undefined;
  
   ngDoCheck(): void {
-    if (this.user.name != this.previousUsername) {
-      this.previousUsername !== this.user.name;
-      console.log('ngDocheck called - username changes');
-  }
+   console.log("ngDoCheck was invoked....");
 }
 }

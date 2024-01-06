@@ -1,21 +1,19 @@
-import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
+import { Component, DoCheck, Input, OnChanges, SimpleChanges } from '@angular/core';
 
 @Component({
   selector: 'app-demo',
   templateUrl: './demo.component.html',
   styleUrls: ['./demo.component.css']
 })
-export class DemoComponent implements OnChanges {
-  @Input() inputValue: string = '';
+export class DemoComponent implements DoCheck {
+  @Input() user: any;
 
-  previousVal : string | undefined;
-  currentVal : string | undefined;
-  ngOnChanges(changes: SimpleChanges): void {
-    if(changes['inputValue']){
-      this.previousVal= changes['inputValue'].previousValue;
-      this.currentVal= changes['inputValue'].currentValue;
-      console.log(changes);
-    
-    }
+  private previousUsername: string | undefined;
+ 
+  ngDoCheck(): void {
+    if (this.user.name != this.previousUsername) {
+      this.previousUsername !== this.user.name;
+      console.log('ngDocheck called - username changes');
   }
+}
 }

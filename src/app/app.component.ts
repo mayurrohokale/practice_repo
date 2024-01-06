@@ -9,21 +9,29 @@ import { Directive } from '@angular/core';
 
 
 
-export class AppComponent implements OnInit {
+export class AppComponent  {
 
-count : number = 0;
+  nm = '';
+  em = '';
+  ph ='';
+  add = '';
+  showHeading: boolean = false;
+  submitted: boolean = false;
+  qualification = [{school:'', degree:'', year:''}];
 
+  addqualification(){
+    this.qualification.push({school:'', degree:'', year:''});
+  }
 
-ngOnInit(): void {
-  this.startCounter();
-}
-startCounter(){
-  setInterval(()=>{
-    if(this.count <= 5){
-      console.log(this.count++);
-    }
-  },1000);
-}
+  submit() {
+    this.submitted = true;
+    this.showHeading = false;
+  }
+
+  edit(){
+      this.submitted =false;
+      this.showHeading = true;
+  }
 
 
 

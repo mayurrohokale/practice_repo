@@ -1,4 +1,4 @@
-import { AfterContentInit, Component, OnInit } from '@angular/core';
+import { AfterContentChecked, AfterContentInit, Component, OnInit } from '@angular/core';
 import { Directive } from '@angular/core';
 @Component({
   selector: 'app-root',
@@ -9,7 +9,7 @@ import { Directive } from '@angular/core';
 
 
 
-export class AppComponent implements AfterContentInit {
+export class AppComponent implements AfterContentInit, AfterContentChecked {
 
 dataFromParent = '';
 ngAfterContentInit(): void {
@@ -17,6 +17,10 @@ ngAfterContentInit(): void {
 sendDatatoChild():void{
   let random = Math.floor(Math.random()*10);
   this.dataFromParent = "Random Number: "+random;
+}
+
+ngAfterContentChecked(): void {
+  console.log("ngAfterContentChecked() was invoked......");
 }
 
 

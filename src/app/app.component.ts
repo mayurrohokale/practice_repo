@@ -1,7 +1,7 @@
 import { AfterContentChecked, AfterContentInit, Component, OnInit } from '@angular/core';
 import { Directive } from '@angular/core';
 @Component({
-  selector: 'app-root',
+  selector: 'app-demo',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })

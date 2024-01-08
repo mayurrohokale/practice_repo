@@ -9,20 +9,13 @@ import { Directive } from '@angular/core';
 
 
 
-export class AppComponent implements AfterContentInit, AfterContentChecked {
+export class AppComponent{
 
-dataFromParent = '';
-ngAfterContentInit(): void {
-  console.log("ngAfterContentInit was invoked.....");}
-sendDatatoChild():void{
-  let random = Math.floor(Math.random()*10);
-  this.dataFromParent = "Random Number: "+random;
+dataFromParent = 'Message From Parent';
+
+show(){
+  this.dataFromParent = 'updated Message';
 }
-
-ngAfterContentChecked(): void {
-  console.log("ngAfterContentChecked() was invoked......");
-}
-
 
 
 //  constructor(){

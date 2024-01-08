@@ -5,12 +5,6 @@ import { Component, DoCheck, Input, OnChanges, SimpleChanges } from '@angular/co
   templateUrl: './demo.component.html',
   styleUrls: ['./demo.component.css']
 })
-export class DemoComponent implements DoCheck {
-  @Input() user: any;
-
-  private previousUsername: string | undefined;
- 
-  ngDoCheck(): void {
-   console.log("ngDoCheck was invoked....");
-}
+export class DemoComponent  {
+ @Input()  RecieveMessage:string = '';
 }

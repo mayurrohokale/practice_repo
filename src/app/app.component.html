@@ -1,11 +1,4 @@
-<h1>Commponent Updation Hook</h1>
-<h2>Decorators</h2>
-<div>
-    <h2>Parent Component</h2>
-    <button (click)="sendDatatoChild()">Generate Number</button>
-
-    <app-demo>
-        <h3>{{dataFromParent}}</h3>
-    </app-demo>
-</div>
-<h3>praactice</h3>
+<h2>
+    <button (click)="show()">Update Message</button>
+    <app-demo [RecieveMessage]="dataFromParent"></app-demo>
+</h2>

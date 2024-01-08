@@ -11,12 +11,12 @@ import { Directive } from '@angular/core';
 
 export class AppComponent{
 
-dataFromParent = 'Message From Parent';
-
-show(){
-  this.dataFromParent = 'updated Message';
-}
-
+courses: {id: number; name: string}[]= [
+  {id:1, name: 'Mayur'},
+  {id:2, name: 'Rphan'},
+  {id:3, name: 'Vahini'},
+  {id:4, name: 'pallavi'}
+];
 
 //  constructor(){
 //   console.log("calling from constructor - ",this.inputValue)

@@ -6,5 +6,5 @@ import { Component, DoCheck, Input, OnChanges, SimpleChanges } from '@angular/co
   styleUrls: ['./demo.component.css']
 })
 export class DemoComponent  {
- @Input()  RecieveMessage:string = '';
+ @Input()  showdata: {id: number; name: string}[] = [];
 }

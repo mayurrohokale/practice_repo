@@ -1,4 +1,10 @@
-<h2>
-    <button (click)="show()">Update Message</button>
-    <app-demo [RecieveMessage]="dataFromParent"></app-demo>
-</h2>
+<div>
+    <div>
+        <h2>Data in App Component</h2>
+        <pre>{{courses | json}}</pre>
+    </div>
+    <div>
+        <h2>childcomponent</h2>
+        <app-demo [showdata]="courses"></app-demo>
+    </div>
+</div>

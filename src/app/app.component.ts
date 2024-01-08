@@ -13,9 +13,8 @@ export class AppComponent{
 
 courses: {id: number; name: string}[]= [
   {id:1, name: 'Mayur'},
-  {id:2, name: 'Rphan'},
-  {id:3, name: 'Vahini'},
-  {id:4, name: 'pallavi'}
+  {id:2, name: 'Rphan'}
+  
 ];
 
 //  constructor(){

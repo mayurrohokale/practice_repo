@@ -1,3 +1,7 @@
 <div>
-    <app-login [recieve]="value"></app-login>
+    <app-login (childEvent)="recieveMessage($event)"></app-login>
+
+    <h2>
+        <p>{{message}}</p>
+    </h2>
 </div>

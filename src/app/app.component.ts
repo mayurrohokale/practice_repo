@@ -11,7 +11,12 @@ import { Directive } from '@angular/core';
 
 export class AppComponent{
 
-value = 'Mayur'
+value = 'Mayur';
+message = '';
+recieveMessage(event:any){
+  this.message = event;
+}
+
 
 //  constructor(){
 //   console.log("calling from constructor - ",this.inputValue)

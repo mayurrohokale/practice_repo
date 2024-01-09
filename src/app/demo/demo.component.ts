@@ -1,4 +1,4 @@
-import { Component, DoCheck, Input, OnChanges, SimpleChanges } from '@angular/core';
+import { Component, DoCheck, Input, OnChanges, SimpleChanges, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-demo',
@@ -6,5 +6,11 @@ import { Component, DoCheck, Input, OnChanges, SimpleChanges } from '@angular/co
   styleUrls: ['./demo.component.css']
 })
 export class DemoComponent  {
- @Input()  showdata: {id: number; name: string}[] = [];
+
+@Output() ChildData = new EventEmitter();
+
+clicktoSend(){
+  this.ChildData.emit('Hello From Child Component');
+}
+
 }

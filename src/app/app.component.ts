@@ -11,11 +11,7 @@ import { Directive } from '@angular/core';
 
 export class AppComponent{
 
-courses: {id: number; name: string}[]= [
-  {id:1, name: 'Mayur'},
-  {id:2, name: 'Rphan'}
-  
-];
+value = 'Mayur'
 
 //  constructor(){
 //   console.log("calling from constructor - ",this.inputValue)

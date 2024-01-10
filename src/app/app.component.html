@@ -1,5 +1,8 @@
-<h2>Parent Compnent</h2>
-<button (click)="addItem()">AddItem</button>
-<app-signup *ngIf="itemsArr.length>0" [items]="itemsArr" (itemDeleted)="deleteItem($event)">
+<div>
+    <h2>
+        App Component
+    </h2>
 
-</app-signup>
+    <button #btnctr (click)="incrementCnt()">Increment Counter</button>
+    <app-login></app-login>
+</div>

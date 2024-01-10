@@ -1,5 +1,6 @@
-import { AfterContentChecked, AfterContentInit, Component, OnInit } from '@angular/core';
+import { AfterContentChecked, AfterContentInit, AfterViewInit, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { Directive } from '@angular/core';
+import { LoginComponent } from './login/login.component';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -9,24 +10,23 @@ import { Directive } from '@angular/core';
 
 
 
-export class AppComponent  {
-
-  itemsArr: string[]= ['Item1','Item2', 'Item3'];
-
-  addItem(){
-    const newItem = `Item ${this.itemsArr.length +1}`;
-    this.itemsArr.push(newItem);
-  }
-
-  deleteItem(index:number){
-    if(index >=0 && index < this.itemsArr.length){
-      this.itemsArr.splice(index, 1);
+export class AppComponent implements AfterViewInit {
+  ngAfterViewInit(): void {
+    if(this.btnRef?.nativeElement){
+      this.btnRef.nativeElement.innerHTML = "Counter ++"; // hide the button
     }
   }
+  @ViewChild(LoginComponent) logincomponent?: LoginComponent;
+  @ViewChild('btnctr') btnRef?:ElementRef<HTMLButtonElement>;
 
-  ngOnInIt():void {
-    console.log('App component initialized');
-  }
-  
+incrementCnt(){
+  console.log(this.logincomponent);
+  this.logincomponent?.incrementCnt();
 }
+
+
+
+
+}
+
 

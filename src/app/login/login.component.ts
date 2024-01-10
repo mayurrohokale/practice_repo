@@ -12,15 +12,14 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 })
 export class LoginComponent  {
 
+count:number = 0;
 
- @Output() childEvent = new EventEmitter();
- clicktoSend(){
-  this.childEvent.emit('Hello From Child');
+incrementCnt(){
+  this.count++;
 }
+
+
+
 }
-
-
-
-
 
 

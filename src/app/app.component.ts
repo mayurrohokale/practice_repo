@@ -9,16 +9,24 @@ import { Directive } from '@angular/core';
 
 
 
-export class AppComponent{
+export class AppComponent  {
 
-  Message = '';
+  itemsArr: string[]= ['Item1','Item2', 'Item3'];
 
-  recieve(event:any){
-    this.Message = event;
+  addItem(){
+    const newItem = `Item ${this.itemsArr.length +1}`;
+    this.itemsArr.push(newItem);
   }
 
-//  constructor(){
-//   console.log("calling from constructor - ",this.inputValue)
-//  }
+  deleteItem(index:number){
+    if(index >=0 && index < this.itemsArr.length){
+      this.itemsArr.splice(index, 1);
+    }
+  }
+
+  ngOnInIt():void {
+    console.log('App component initialized');
+  }
+  
 }
 

@@ -1,8 +1,5 @@
-<div>
-    <app-login (childEvent)="recieve($event)"></app-login>
+<h2>Parent Compnent</h2>
+<button (click)="addItem()">AddItem</button>
+<app-signup *ngIf="itemsArr.length>0" [items]="itemsArr" (itemDeleted)="deleteItem($event)">
 
-    <div>
-        <p>{{Message}}</p>
-        <p>{{Message}}</p>
-    </div>
-</div>
+</app-signup>

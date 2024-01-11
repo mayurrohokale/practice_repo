@@ -1,16 +1,17 @@
-import { Component, DoCheck, Input, OnChanges, SimpleChanges, Output, EventEmitter } from '@angular/core';
+import { Component, DoCheck, Input, OnChanges, SimpleChanges, Output, EventEmitter, ContentChild, ElementRef, AfterContentChecked, AfterContentInit } from '@angular/core';
 
 @Component({
   selector: 'app-demo',
   templateUrl: './demo.component.html',
   styleUrls: ['./demo.component.css']
 })
-export class DemoComponent  {
+export class DemoComponent implements AfterContentInit {
+  
 
-@Output() ChildData = new EventEmitter();
+  @ContentChild('showPara') paraRef?: ElementRef;
 
-clicktoSend(){
-  this.ChildData.emit('Hello From Child Component');
-}
-
+  ngAfterContentInit(): void {
+    const content = this.paraRef?.nativeElement;
+    content.style.fontStyle = 'Italic';
+  }
 }

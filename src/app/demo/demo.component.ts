@@ -13,5 +13,6 @@ export class DemoComponent implements AfterContentInit {
   ngAfterContentInit(): void {
     const content = this.paraRef?.nativeElement;
     content.style.fontStyle = 'Italic';
+    content.style.fontColor = 'red';
   }
 }

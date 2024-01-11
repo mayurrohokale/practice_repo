@@ -14,5 +14,7 @@ export class DemoComponent implements AfterContentInit {
     const content = this.paraRef?.nativeElement;
     content.style.fontStyle = 'Italic';
     content.style.fontWeight = '350';
+    content.style.color = 'red';
+    
   }
 }

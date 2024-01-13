@@ -1,4 +1,4 @@
-import { Directive, HostBinding, OnInit } from '@angular/core';
+import { Directive, HostBinding, HostListener, OnInit } from '@angular/core';
 
 @Directive({
   selector: '[appHighlightElement]'
@@ -13,4 +13,15 @@ export class HighlightElementDirective implements OnInit {
     this.textcolor = 'red';
   }
 
+  @HostListener('click') OnToggle(){
+    if (this.bgcolor === 'aqua'){
+      this.bgcolor = 'green';
+      this.textcolor = 'black';
+  }
+  else
+  {
+    this.bgcolor = 'aqua';
+    this.textcolor = 'white';
+  }
+}
 }

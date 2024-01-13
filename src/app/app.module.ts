@@ -12,6 +12,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ExampleDirective } from './example.directive';
+import { HighlightElementDirective } from './highlight-element.directive';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { ExampleDirective } from './example.directive';
     LoginComponent,
     SignupComponent,
     DemoComponent,
-    ExampleDirective
+    ExampleDirective,
+    HighlightElementDirective
   ],
   imports: [
     BrowserModule,

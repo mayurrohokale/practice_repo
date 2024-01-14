@@ -14,8 +14,32 @@ import { DatePipe } from '@angular/common';
 
 export class AppComponent {
 
-    
 
+  showJson :boolean = false;
+    students = [
+      {
+        name : "John Doe",
+        age: 22,
+        gender:'male',
+        major:'computer'
+      },
+      {
+        name:'andrwe',
+        age:25,
+        gender: 'female',
+        major: 'mathematic'
+      },
+      {
+        name:"Jane Smith",
+        age:21,
+        gender: 'male',
+        major: 'english'
+      }
+    ];
+
+    toggleJson(){
+      this.showJson =  true;
+    }
 }
 
 

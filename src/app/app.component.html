@@ -1,1 +1,25 @@
-<p>{{UserDetails | json | uppercase}}</p>
+
+<h1>Students List</h1>
+<table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>age</th>
+        <th>gender</th>
+        <th>major</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let q of students">
+        <td>{{q.name}}</td>
+        <td>{{q.age}}</td>
+        <td>{{q.gender}}</td>
+        <td>{{q.major}}</td>
+      </tr>
+    </tbody>
+</table>
+
+<button type="button" (click)="toggleJson()"> Json Format</button>
+<div *ngIf="showJson">
+  {{students | json}}
+</div>

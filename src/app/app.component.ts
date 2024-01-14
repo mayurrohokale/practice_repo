@@ -20,6 +20,8 @@ export class AppComponent {
     {name: 'tim cook', state: 'florida', salary: 90000},
     {name:'sean parker', state:'san andreas', salary:40000},
   ];
+
+  slicearr = ['ItemA','ItemB', 'Itemc']
 }
 
 

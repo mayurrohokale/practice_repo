@@ -1,4 +1,4 @@
-import { AfterContentChecked, AfterContentInit, AfterViewInit, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { AfterContentChecked, AfterContentInit, AfterViewInit, Component, ElementRef, HostBinding, HostListener, OnInit, ViewChild } from '@angular/core';
 import { Directive } from '@angular/core';
 import { LoginComponent } from './login/login.component';
 import { DatePipe } from '@angular/common';
@@ -14,11 +14,8 @@ import { DatePipe } from '@angular/common';
 
 export class AppComponent {
 
-  birthday = new Date(1988, 3, 15);
-
-
-
-
+  title = 'Example of pipe expression';
+  showdt:Date=new Date();
 }
 
 

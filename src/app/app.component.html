@@ -1,23 +1,11 @@
-<div class="table-container">
-    <table>
-        <tr>
-          <th>Name</th>
-         
-          <th>State</th>
+<div>
+  <div *ngFor="let product of products | slice: startIndex:endIndex">
+    <h2>{{product.name}}</h2>
+    <img [src]="product.imageUrl" alt=" course image url/">
+  </div>
 
-          <th>Salary</th>
-        </tr>
-
-        <tr *ngFor="let emp of employees">
-          <td>{{emp.name | titlecase}}</td>
-          <td>{{emp.state | slice:0:3 | uppercase}}</td>
-          <td>{{emp.salary | currency:'USD'}}</td>
-        </tr>
-    </table>
+  <div>
+    <button type="button" (click)="priviousPage()">Previous</button>
+    <button type="button" (click)="nextPage()"> Next</button>
+  </div>
 </div>
-
-<p>
-  {{'Angular slice pipe' | slice:0:6}}
-</p>
-
-<p>{{slicearr| slice:0:2}}</p>

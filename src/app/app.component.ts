@@ -14,8 +14,12 @@ import { DatePipe } from '@angular/common';
 
 export class AppComponent {
 
-  title = 'Example of pipe expression';
-  showdt:Date=new Date();
+  employees = [
+    {name: 'jason smith', state: 'california', salary: 500000},
+    {name: 'mark lewis', state: 'new york', salary:80000},
+    {name: 'tim cook', state: 'florida', salary: 90000},
+    {name:'sean parker', state:'san andreas', salary:40000},
+  ];
 }
 
 

@@ -96,3 +96,21 @@ button:hover{
     font-size: 2rem;
     margin-bottom: 0.5rem;
 }
+
+.table-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 35px;
+}
+
+table {
+    width: 70%;
+    text-align: center;
+    border-collapse: collapse;
+}
+
+td,th{
+    padding: 8px;
+    font-size: 1.2rem;
+    border: solid 1px;
+}

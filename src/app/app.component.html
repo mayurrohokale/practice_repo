@@ -1,1 +1,9 @@
-<p>{{ pi | number: '1.2-2'}}</p>
+<div class="container">
+  <h2>Weight Converter</h2>
+  <div>
+    <label for="weightInPounds">Enter Weight in Poundss</label>
+    <input type="number" id="weightInPounds" [(ngModel)]="weightInPounds"/>
+  </div>
+  <button (click)="convertWeight()">Convert</button>
+  <p>weightInKilograms: {{weightInKilograms | number: '1.0-0'}} Kg</p>
+</div>

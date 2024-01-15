@@ -14,10 +14,10 @@ import { DatePipe } from '@angular/common';
 
 export class AppComponent {
 
-counterVal = 0;
-
-cOunter(){
-  this.counterVal++;
+arr = [1,2,3];
+updateVal()
+{
+  this.arr.push(5);
 }
 
 }

@@ -1,5 +1,4 @@
 import { Component, DoCheck, Input, OnChanges, SimpleChanges, Output, EventEmitter, ContentChild, ElementRef, AfterContentChecked, AfterContentInit } from '@angular/core';
-import { AppRoutingModule } from '../app-routing.module';
 @Component({
   selector: 'app-demo',
   templateUrl: './demo.component.html',

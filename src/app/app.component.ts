@@ -14,32 +14,24 @@ import { DatePipe } from '@angular/common';
 
 export class AppComponent {
 
+numbers = [3,5,8,6,4,10];
+sortOrder = 'asc';
+showList: boolean = false;
+get sortedNumbers(){
+  const sortedArr = [...this.numbers].sort((a,b) => {
+    if(this.sortOrder === 'asc'){
+      return a - b;
+  }
+  else{
+    return b - a;
+ } });
 
-  showJson:boolean=false;
-    students = [
-      {
-        name : "John Doe",
-        age: 22,
-        gender:'male',
-        major:'computer'
-      },
-      {
-        name:'andrwe',
-        age:25,
-        gender: 'female',
-        major: 'mathematic'
-      },
-      {
-        name:"Jane Smith",
-        age:21,
-        gender: 'male',
-        major: 'english'
-      }
-    ];
-
-    toggleJson(){
-      this.showJson =  true;
-    }
+ return sortedArr;
+}
+  
+showSorting(){
+  this.showList = true;
+}
 
 }
 

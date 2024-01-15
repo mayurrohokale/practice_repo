@@ -14,7 +14,11 @@ import { DatePipe } from '@angular/common';
 
 export class AppComponent {
 
-stringVal = '';
+counterVal = 0;
+
+cOunter(){
+  this.counterVal++;
+}
 
 }
 

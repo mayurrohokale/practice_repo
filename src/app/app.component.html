@@ -1,9 +1,5 @@
 <div>
-  <h1>Letter Count</h1>
-  <input type="text" [(ngModel)]="stringVal"/>
-  <span>Enter String</span>
-</div>
+  <button (click)="cOunter()">Increment Counter</button>
+  <p>Counter Value: {{counterVal | appendText}}</p>
 
-<div>
-  <p>{{stringVal | appendText }}</p>
 </div>

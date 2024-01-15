@@ -14,12 +14,6 @@ import { DatePipe } from '@angular/common';
 
 export class AppComponent {
 
-arr = [1,2,3];
-updateVal()
-{
-  this.arr.push(5);
-}
-
 }
 
 

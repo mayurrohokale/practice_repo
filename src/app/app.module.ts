@@ -14,6 +14,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ExampleDirective } from './example.directive';
 import { HighlightElementDirective } from './highlight-element.directive';
 import { AppendTextPipe } from './append-text.pipe';
+import { ROUTES } from '@angular/router';
 
 @NgModule({
   declarations: [

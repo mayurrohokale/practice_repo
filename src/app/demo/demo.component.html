@@ -1,10 +1,12 @@
-<section>
-  <div>
-    <h2>Demo</h2>
-    <p>
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores, ipsum
-      dolorem pariatur rem sapiente aliquid suscipit, nulla distinctio est ut
-      ullam voluptates quisquam sint libero quasi magnam modi iste tempora?
-    </p>
-  </div>
-</section>
+<table>
+    <thead>
+      <tr>Department</tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let emp of employees">
+        <td><a href="#" routerLink="['/demo',emp.empName]">
+          {{emp.empDept}}
+        </a></td>
+      </tr>
+    </tbody>
+  </table>

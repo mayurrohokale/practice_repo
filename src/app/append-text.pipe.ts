@@ -1,7 +1,8 @@
 import { Pipe, PipeTransform } from '@angular/core';
 
 @Pipe({
-  name: 'appendText'
+  name: 'appendText',
+  pure: false
 })
 export class AppendTextPipe implements PipeTransform {
 

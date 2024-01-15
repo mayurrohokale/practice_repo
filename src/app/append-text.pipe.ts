@@ -5,16 +5,16 @@ import { Pipe, PipeTransform } from '@angular/core';
 })
 export class AppendTextPipe implements PipeTransform {
 
-  transform(arr: number[], sortOrder: 'asc' | 'desc'):number[] {
-    if(sortOrder === 'asc')
-    {
-      return arr.sort();
-
+  transform(value:string): number {
+    let count = 0;
+    
+    for(const ch of value){
+      if (ch >= 'a' && ch <= 'z' || ch >= 'A' && ch<= 'z')
+      {
+        count++;
     }
-    else
-    {
-      return arr.sort((a,b)=> b-a);
-    }
+   
   }
-
-}
+  return count;
+  }
+  }

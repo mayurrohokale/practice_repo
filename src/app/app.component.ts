@@ -15,7 +15,7 @@ import { DatePipe } from '@angular/common';
 export class AppComponent {
 
 
-  showJson :boolean = false;
+  showJson:boolean=false;
     students = [
       {
         name : "John Doe",
@@ -40,6 +40,7 @@ export class AppComponent {
     toggleJson(){
       this.showJson =  true;
     }
+
 }
 
 

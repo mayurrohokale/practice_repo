@@ -13,6 +13,7 @@ import { MatInputModule } from '@angular/material/input';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ExampleDirective } from './example.directive';
 import { HighlightElementDirective } from './highlight-element.directive';
+import { AppendTextPipe } from './append-text.pipe';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { HighlightElementDirective } from './highlight-element.directive';
     SignupComponent,
     DemoComponent,
     ExampleDirective,
-    HighlightElementDirective
+    HighlightElementDirective,
+    AppendTextPipe
   ],
   imports: [
     BrowserModule,

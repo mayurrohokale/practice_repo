@@ -4,24 +4,7 @@ import { DemoComponent } from './demo/demo.component';
 import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
 const routes: Routes = [
-  {
-    path: 'login', component: LoginComponent, children:[
-      {
-        path: '', redirectTo: 'signup' ,  pathMatch: 'full'
-      },
-      {
-      
-        path: 'signup', component: SignupComponent
-      },
-      {
-        path: 'demo', component: DemoComponent
-      },
-    ]
-  },
-  {path:'**', redirectTo:'/login', pathMatch: 'full'},
-  
-
- 
+  {path:'login', component: LoginComponent},
 ];
 
 @NgModule({

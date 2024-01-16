@@ -2,7 +2,7 @@ import { AfterContentChecked, AfterContentInit, AfterViewInit, Component, Elemen
 import { Directive } from '@angular/core';
 import { LoginComponent } from './login/login.component';
 import { DatePipe } from '@angular/common';
-
+import { AdminModule } from './admin/admin.module';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',

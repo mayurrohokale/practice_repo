@@ -15,6 +15,7 @@ import { ExampleDirective } from './example.directive';
 import { HighlightElementDirective } from './highlight-element.directive';
 import { AppendTextPipe } from './append-text.pipe';
 import { ROUTES } from '@angular/router';
+import { AdminModule } from './admin/admin.module';
 
 @NgModule({
   declarations: [
@@ -24,13 +25,14 @@ import { ROUTES } from '@angular/router';
     DemoComponent,
     ExampleDirective,
     HighlightElementDirective,
-    AppendTextPipe
+    AppendTextPipe,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    MatFormFieldModule, MatInputModule, FormsModule, ReactiveFormsModule
+    MatFormFieldModule, MatInputModule, FormsModule, ReactiveFormsModule,
+    AdminModule
   ],
   providers: [],
   bootstrap: [AppComponent]

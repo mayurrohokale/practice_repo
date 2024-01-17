@@ -1,1 +1,10 @@
-<h1>Employee ID:{{id}}</h1>
+<h1>Employee</h1>
+<div>
+    <ul>
+        <li *ngFor="let emp of employees">
+
+            <a href="#" [routerLink]="['/demo']" [queryParams]="{id:emp.id, name: emp.name}">{{emp.name}}</a>
+
+        </li>
+    </ul>
+</div>

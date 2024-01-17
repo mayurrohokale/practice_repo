@@ -4,6 +4,7 @@ import { DemoComponent } from './demo/demo.component';
 import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
 const routes: Routes = [
+  {path: '', redirectTo:'/demo',pathMatch:'full'},
   {path:'demo/:id', component: DemoComponent},
 ];
 

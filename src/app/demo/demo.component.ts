@@ -6,29 +6,32 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./demo.component.css']
 })
 export class DemoComponent {
-  id:string = '';
 
-  constructor(private route: ActivatedRoute)
-  {
-    const params = this.route.snapshot.params;
-    this.id = params['id'];
-  }
 
-  
   employees =[
     {
-      empId: '101',empName:'Joe', empDept:'computer'
+      id: '101',name:'Joe', empDept:'computer'
     },
     {
-      empId: '102', empName:'seoge', empDept:'Mech'
+      id: '102', name:'seoge', empDept:'Mech'
     },
     {
-      empId: '103', empName:'tom', empDept:'english'
+      id: '103', name:'tom', empDept:'english'
     },
     {
-      empId: '104', empName:'alex', empDept:'Math'
+      id: '104', name:'alex', empDept:'Math'
     }
   ];
 
+  id:string = '';
+  name: string = '';
 
+  constructor(private route: ActivatedRoute)
+  {
+    this.route.queryParams.subscribe((params)=>
+    {
+      this.id = params['id'];
+      this.name = params['name'];
+      console.log(params);    })
+  }
 }

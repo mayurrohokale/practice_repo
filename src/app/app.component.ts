@@ -3,6 +3,7 @@ import { Directive } from '@angular/core';
 import { LoginComponent } from './login/login.component';
 import { DatePipe } from '@angular/common';
 import { AdminModule } from './admin/admin.module';
+import { DemoService } from './dependencies/demo.service';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -13,7 +14,21 @@ import { AdminModule } from './admin/admin.module';
 
 
 export class AppComponent {
+  employees: any[] | undefined;
+  empId: number = 0;
+  emp:any;
 
+  constructor(private e: DemoService)
+  {
+    this.employees =this.e.getEmployees();
+
+  }
+
+  showDetails(employeeId: number)
+  {
+    this.empId = employeeId;
+    this.emp = this.e.getEmployeebyID(employeeId);
+  }
 }
 
 

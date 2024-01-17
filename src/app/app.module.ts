@@ -16,6 +16,7 @@ import { HighlightElementDirective } from './highlight-element.directive';
 import { AppendTextPipe } from './append-text.pipe';
 import { ROUTES } from '@angular/router';
 import { AdminModule } from './admin/admin.module';
+import { DemoService } from './dependencies/demo.service';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,7 @@ import { AdminModule } from './admin/admin.module';
     MatFormFieldModule, MatInputModule, FormsModule, ReactiveFormsModule,
     AdminModule
   ],
-  providers: [],
+  providers: [DemoService],
   bootstrap: [AppComponent]
 })
 export class AppModule { 

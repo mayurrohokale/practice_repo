@@ -1,10 +1,12 @@
-<h1>Employee</h1>
+<h2>{{name}}</h2>
+
 <div>
-    <ul>
-        <li *ngFor="let emp of employees">
+    <div>
+        <p>{{desc | titlecase}}</p>
+    </div>
 
-            <a href="#" [routerLink]="['/demo']" [queryParams]="{id:emp.id, name: emp.name}">{{emp.name}}</a>
-
-        </li>
-    </ul>
+    <div>
+        <img [src]="img" alt="{{name}}">
+        <p>Price: {{price | currency: 'USD'}}</p>
+    </div>
 </div>

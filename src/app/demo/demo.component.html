@@ -1,12 +1,5 @@
-<h2>{{name}}</h2>
+<h1>Products</h1>
 
-<div>
-    <div>
-        <p>{{desc | titlecase}}</p>
-    </div>
-
-    <div>
-        <img [src]="img" alt="{{name}}">
-        <p>Price: {{price | currency: 'USD'}}</p>
-    </div>
-</div>
+<ul>
+    <li *ngFor="let name of names">{{name}}</li>
+</ul>

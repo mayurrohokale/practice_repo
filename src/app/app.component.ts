@@ -14,21 +14,7 @@ import { DemoService } from './dependencies/demo.service';
 
 
 export class AppComponent {
-  employees: any[] | undefined;
-  empId: number = 0;
-  emp:any;
-
-  constructor(private e: DemoService)
-  {
-    this.employees =this.e.getEmployees();
-
-  }
-
-  showDetails(employeeId: number)
-  {
-    this.empId = employeeId;
-    this.emp = this.e.getEmployeebyID(employeeId);
-  }
+ 
 }
 
 

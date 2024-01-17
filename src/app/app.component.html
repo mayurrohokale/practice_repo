@@ -1,13 +1,1 @@
-<h1>Employee Details</h1>
-<ul>
-    <li *ngFor="let emp of employees">
-      Employee : {{emp.name}}
-      <button (click)="showDetails(emp.id)">Show Details</button>
-      <div *ngIf = "emp.id === empId">
-        <p>ID: {{emp.id}}</p>
-        <p>Name: {{emp.name}}</p>
-        <p>Dep: {{emp.dep}}</p>
-        <p>Pin: {{emp.pin}}</p>
-      </div>
-    </li>
-</ul>
+<app-demo></app-demo>

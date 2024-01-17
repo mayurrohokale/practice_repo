@@ -4,9 +4,7 @@ import { LoginComponent } from '../login/login.component';
 import { DemoComponent } from '../demo/demo.component';
 
 const routes: Routes = [
-  { path: 'admin', children: [
-    {path: 'demo', component: DemoComponent}
-  ] },
+  
 ];
 
 @NgModule({

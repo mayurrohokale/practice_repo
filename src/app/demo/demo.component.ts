@@ -1,18 +1,21 @@
 import { Component, DoCheck, Input, OnChanges, SimpleChanges, Output, EventEmitter, ContentChild, ElementRef, AfterContentChecked, AfterContentInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { DemoService } from '../dependencies/demo.service';
+import { PowerService } from '../dependencies/power.service';
 @Component({
   selector: 'app-demo',
   templateUrl: './demo.component.html',
-  styleUrls: ['./demo.component.css']
+  styleUrls: ['./demo.component.css'],
+  providers: [PowerService, DemoService],
 })
 export class DemoComponent {
-  names: string[];
 
-  constructor(private demoservice: DemoService)
-  {
-    this.names = this.demoservice.getNames();
+  constructor(public powerservice: PowerService){
 
+  }
+
+  calculateCube():number{
+    return this.powerservice.calculateCube(3);
   }
   
 }

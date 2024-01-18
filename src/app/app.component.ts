@@ -16,7 +16,7 @@ import { DemoService } from './dependencies/demo.service';
 export class AppComponent {
   
   constructor(
-    @Inject('Log_MSG1')  public msg: string){
+    public getAdmin: DemoService){
     
   }
 }

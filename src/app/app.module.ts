@@ -18,6 +18,7 @@ import { ROUTES } from '@angular/router';
 import { AdminModule } from './admin/admin.module';
 import { DemoService } from './dependencies/demo.service';
 import { PowerService } from './dependencies/power.service';
+import { admin_data } from './dependencies/admin_data';
 
 @NgModule({
   declarations: [
@@ -36,10 +37,10 @@ import { PowerService } from './dependencies/power.service';
     MatFormFieldModule, MatInputModule, FormsModule, ReactiveFormsModule,
     AdminModule
   ],
-  providers: [{
-    provide: 'Log_MSG1', useValue: 'This is the String Message' 
-  },
-],
+  
+  providers:[
+    DemoService, {provide: admin_data, useValue:admin_data}
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { 

@@ -16,8 +16,8 @@ import { DemoService } from './dependencies/demo.service';
 export class AppComponent {
   
   constructor(
-    @Inject('Log_MSG1')  public logger: DemoService){
-    this.logger.log();
+    @Inject('Log_MSG1')  public msg: string){
+    
   }
 }
 

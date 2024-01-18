@@ -37,7 +37,7 @@ import { PowerService } from './dependencies/power.service';
     AdminModule
   ],
   providers: [{
-    provide: 'Log_MSG1', useClass: DemoService
+    provide: 'Log_MSG1', useValue: 'This is the String Message' 
   },
 ],
   bootstrap: [AppComponent]

@@ -14,8 +14,5 @@ export class DemoComponent {
 
   }
 
-  calculateCube():number{
-    return this.powerservice.calculateCube(3);
-  }
   
 }

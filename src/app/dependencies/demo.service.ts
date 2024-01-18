@@ -1,8 +1,9 @@
+import { Injectable } from "@angular/core";
 
+@Injectable()
 export class DemoService {
- 
-  calculatePower(value: number, power: number):number{
-    return Math.pow(value,power);
+  log(): void{
+    console.log("this is Service 1");
   }
- 
+
 }

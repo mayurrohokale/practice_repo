@@ -14,7 +14,10 @@ import { DemoService } from './dependencies/demo.service';
 
 
 export class AppComponent {
- 
+  
+  constructor(public logger: DemoService){
+    this.logger.log();
+  }
 }
 
 

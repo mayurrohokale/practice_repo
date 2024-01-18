@@ -4,9 +4,7 @@ import { DemoService } from './demo.service';
 @Injectable()
 export class PowerService {
 
-  constructor(public demoservice: DemoService ){}
-
-  calculateCube(value: number): number{
-    return this.demoservice.calculatePower(value,3);
+  log(): void{
+    console.log("this is Service 2");
   }
 }

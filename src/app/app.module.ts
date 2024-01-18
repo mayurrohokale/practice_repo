@@ -17,6 +17,7 @@ import { AppendTextPipe } from './append-text.pipe';
 import { ROUTES } from '@angular/router';
 import { AdminModule } from './admin/admin.module';
 import { DemoService } from './dependencies/demo.service';
+import { PowerService } from './dependencies/power.service';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,10 @@ import { DemoService } from './dependencies/demo.service';
     MatFormFieldModule, MatInputModule, FormsModule, ReactiveFormsModule,
     AdminModule
   ],
-  providers: [DemoService],
+  providers: [{
+    provide: DemoService, useClass: DemoService
+  },
+{provide: DemoService, useClass: PowerService},],
   bootstrap: [AppComponent]
 })
 export class AppModule { 

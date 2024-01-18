@@ -39,7 +39,8 @@ import { admin_data } from './dependencies/admin_data';
   ],
   
   providers:[
-    DemoService, {provide: admin_data, useValue:admin_data}
+    DemoService, {provide:PowerService, useExisting: DemoService
+  }
   ],
   bootstrap: [AppComponent]
 })

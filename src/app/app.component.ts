@@ -16,8 +16,13 @@ import { DemoService } from './dependencies/demo.service';
 export class AppComponent {
   
   constructor(
-    public getAdmin: DemoService){
+    public alert: DemoService){
     
+  }
+
+  displayAlert()
+  {
+    this.alert.showAlert();
   }
 }
 

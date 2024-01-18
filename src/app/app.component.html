@@ -1,1 +1,7 @@
-<button (click)="displayAlert()">Show</button>
+<form #myForm="ngForm" (ngSubmit)="submitForm(myForm)">
+    <div>
+        <label for="username">Name</label>
+        <input type="text" name="username" [(ngModel)]="user.username" id="username"/><br/>
+    </div>
+    <button type="submit">Submit</button>
+</form>

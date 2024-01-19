@@ -17,23 +17,14 @@ import { FormGroup,FormArray, FormBuilder } from '@angular/forms';
 
 export class AppComponent {
 
-  myForm: FormGroup;
-  nameControl: FormControl;
-  emailControl: FormControl;
+  step: any = 1;
 
-  constructor(){
-    this.nameControl = new FormControl('', Validators.required);
-    this.emailControl = new FormControl('',[Validators.required, Validators.email]);
-    this.myForm=new FormGroup({
-      name: this.nameControl,
-      email: this.emailControl,
-    });
+  btnPrevious()
+  {
+    this.step -= 1;
   }
-  formSubmit(){
-    if(this.myForm.valid){
-      console.log(this.myForm.value);
-    }
+  btnNext()
+  {
+    this.step += 1;
   }
-
-
 }

@@ -6,17 +6,21 @@
       <div class="mb-3">
         <label for="inputName" class="form-label">Full Name</label>
         <input type="text" class="form-control" id="inputName"  formControlName="fname"/>
-        <span class="form-label text-danger" *ngIf="userDetails.get('fname')?.invalid && userDetails.get('fname')?.touched">*Please Enter your Full Name</span>
-      </div>
+        <!-- <span class="form-label text-danger" *ngIf="userDetails.get('fname')?.invalid && userDetails.get('fname')?.touched">*Please Enter your Full Name</span> -->
+        <p class="form-label text-warning">Pristine State - {{myForm.get('fname')?.pristine}}</p>
+        <p class="form-label text-warning">Dirty State - {{myForm.get('fname')?.dirty}}</p>
+    </div>
       <div class="mb-3">
         <label for="inputEmail" class="form-label">Email</label>
         <input type="email" class="form-control" id="inputEmail" formControlName="email"/>
-        <span class="form-label text-danger" *ngIf="userDetails.get('email')?.invalid && userDetails.get('email')?.touched">*Please Enter your Email</span>
-      </div>
+        <!-- <span class="form-label text-danger" *ngIf="userDetails.get('email')?.invalid && userDetails.get('email')?.touched">*Please Enter your Email</span> -->
+        <p class="form-label text-warning">Pristine State - {{myForm.get('email')?.pristine}}</p>
+        <p class="form-label text-warning">Dirty State - {{myForm.get('email')?.dirty}}</p>
+    </div>
       <div class="mb-3">
         <label for="inputPassword" class="form-label">Password</label>
         <input type="password" class="form-control" id="inputPassword" formControlName="password"/>
-        <span class="form-label text-danger" *ngIf="userDetails.get('password')?.invalid && userDetails.get('password')?.touched">*Please Enter your password</span>
+        <!-- <span class="form-label text-danger" *ngIf="userDetails.get('password')?.invalid && userDetails.get('password')?.touched">*Please Enter your password</span> -->
       </div>
     </ng-container>
 

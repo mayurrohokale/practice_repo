@@ -40,9 +40,9 @@ export class AppComponent {
     });
   }
 
-  get userDetails(){
-    return this.myForm.get('userDetails') as FormGroup;
-  }
+  // get userDetails(){
+  //   return this.myForm.get('userDetails') as FormGroup;
+  // }
   get additionalDetails(){
     return this.myForm.get('additionalDetails') as FormGroup;
   }
@@ -56,11 +56,11 @@ export class AppComponent {
   }
   btnNext()
   {
-    const userDetailsGroup = this.myForm.get('userDetails') as FormGroup;
+    // const userDetailsGroup = this.myForm.get('userDetails') as FormGroup;
     const additionalDetailsGroup = this.myForm.get('additionalDetails') as FormGroup;
-    if(userDetailsGroup.invalid && this.step == 1){
-      return;
-    }
+    // if(userDetailsGroup.invalid && this.step == 1){
+    //   return;
+    // }
     if(additionalDetailsGroup.invalid && this.step == 2){
       return;
     }

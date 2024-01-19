@@ -1,23 +1,26 @@
 <div class="container">
   <h1>Multi Step Form</h1>
-  <form [formGroup]="myForm" (ngSubmit)="formSubmit()" >
+  <form [formGroup]="myForm" (ngSubmit)="formSubmit()" *ngIf="!isSubmitted">
     <ng-container *ngIf="step == 1" formGroupName="userDetails">
       <h4>User Detail</h4>
       <div class="mb-3">
         <label for="inputName" class="form-label">Full Name</label>
         <input type="text" class="form-control" id="inputName"  formControlName="fname"/>
+        <span class="form-label text-danger" *ngIf="userDetails.get('fname')?.invalid && userDetails.get('fname')?.touched">*Please Enter your Full Name</span>
       </div>
       <div class="mb-3">
         <label for="inputEmail" class="form-label">Email</label>
         <input type="email" class="form-control" id="inputEmail" formControlName="email"/>
+        <span class="form-label text-danger" *ngIf="userDetails.get('email')?.invalid && userDetails.get('email')?.touched">*Please Enter your Email</span>
       </div>
       <div class="mb-3">
         <label for="inputPassword" class="form-label">Password</label>
         <input type="password" class="form-control" id="inputPassword" formControlName="password"/>
+        <span class="form-label text-danger" *ngIf="userDetails.get('password')?.invalid && userDetails.get('password')?.touched">*Please Enter your password</span>
       </div>
     </ng-container>
 
-    <ng-container *ngIf="step == 2" formControlName="additionalDetails">
+    <ng-container *ngIf="step == 2" formGroupName="additionalDetails">
       <h4>additional Details</h4>
       <div class="mb-3">
         <label for="inputMobile" class="form-label">Phone Number</label>
@@ -26,8 +29,9 @@
           class="form-control"
           id="input-mobile"
           placeholder="+91"
-          formControlName="number"
+          formControlName="mobile"
         />
+        <span class="form-label text-danger" *ngIf="additionalDetails.get('mobile')?.invalid && additionalDetails.get('mobile')?.touched">*Please Enter 10 Digits of your Mobile Number</span>
       </div>
       <div class="mb-3">
         <div class="form-floating">
@@ -37,6 +41,7 @@
             id="floatingTextArea"
             formControlName="address"
           ></textarea>
+          <span class="form-label text-danger" *ngIf="additionalDetails.get('address')?.invalid && additionalDetails.get('address')?.touched">*Please Enter your Full Address</span>
           <label for="floatingTextArea" class="form-label"
             >Street Address</label
           >
@@ -45,6 +50,7 @@
       <div class="mb-3">
         <label for="inputCountry" class="form-label">Country</label>
         <input type="text" class="form-control" id="inputCountry" formControlName="country" />
+        <span class="form-label text-danger" *ngIf="additionalDetails.get('country')?.invalid && additionalDetails.get('country')?.touched">*Please Enter your country</span>
       </div>
       <div class="mb-3">
         <label for="inputGender" class="form-label">Gender</label>
@@ -53,10 +59,11 @@
           <option value="female">Female</option>
           <option value="">Prefer not to answer</option>
         </select>
+        <span class="form-label text-danger" *ngIf="additionalDetails.get('gender')?.invalid && additionalDetails.get('gender')?.touched">*Please select your Gender</span>
       </div>
     </ng-container>
 
-    <ng-container *ngIf="step == 3" formControlName="feedback">
+    <ng-container *ngIf="step == 3" formGroupName="feedback">
       <h4>Feedback/comment</h4>
       <div class="mb-3">
         <div class="form-floating">
@@ -68,6 +75,7 @@
             formControlName="comment"
           ></textarea>
           <label for="floatingTextArea" class="form-label">comments</label>
+         
         </div>
       </div>
     </ng-container>
@@ -79,4 +87,8 @@
     <button type="submit" class="btn btn-success"
     *ngIf="step == 3">Submit</button>
   </form>
+
+  <ng-container *ngIf="!isSubmitted">
+    <h2 class="text-success"> Form Submitted Successfully </h2>
+  </ng-container>
 </div>

@@ -18,6 +18,8 @@ import { FormGroup,FormArray, FormBuilder } from '@angular/forms';
 export class AppComponent {
 
   myForm: FormGroup;
+  isSubmitted: boolean = false;
+
   constructor(private formbuilder: FormBuilder)
   {
     this.myForm = this.formbuilder.group({
@@ -27,7 +29,7 @@ export class AppComponent {
         password:['', Validators.required],
       }),
       additionalDetails: this.formbuilder.group({
-        mobile:['', [Validators.required, Validators.maxLength(10)]],
+        mobile:['',[Validators.required, Validators.pattern(/^\d{10}$/)]],
         address:['', Validators.required],
         country:['', Validators.required],
         gender:['', Validators.required],
@@ -38,6 +40,13 @@ export class AppComponent {
     });
   }
 
+  get userDetails(){
+    return this.myForm.get('userDetails') as FormGroup;
+  }
+  get additionalDetails(){
+    return this.myForm.get('additionalDetails') as FormGroup;
+  }
+  
 
   step: any = 1;
 
@@ -47,11 +56,28 @@ export class AppComponent {
   }
   btnNext()
   {
-    this.step += 1;
+    const userDetailsGroup = this.myForm.get('userDetails') as FormGroup;
+    const additionalDetailsGroup = this.myForm.get('additionalDetails') as FormGroup;
+    if(userDetailsGroup.invalid && this.step == 1){
+      return;
+    }
+    if(additionalDetailsGroup.invalid && this.step == 2){
+      return;
+    }
+    if(this.step < 3)
+    {
+      this.step += 1;
+    }
+    
+   
   }
 
   formSubmit()
   {
+    if(this.myForm.valid)
+    {
+      this.isSubmitted = true;
+    }
     console.log(this.myForm.value);
   }
 }

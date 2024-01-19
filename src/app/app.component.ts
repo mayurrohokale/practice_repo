@@ -4,7 +4,7 @@ import { LoginComponent } from './login/login.component';
 import { DatePipe } from '@angular/common';
 import { AdminModule } from './admin/admin.module';
 import { DemoService } from './dependencies/demo.service';
-import { NgForm } from '@angular/forms';
+import { FormControl, Validators, NgForm, ReactiveFormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-root',
@@ -17,33 +17,23 @@ import { NgForm } from '@angular/forms';
 
 export class AppComponent {
 
+usernameControl = new FormControl('',[
+  Validators.required,
+  Validators.minLength(4),
+  Validators.maxLength(10),
+  Validators.pattern('^[a-zA-Z0-9]+$')
+]);
+
+showValue()
+{
+  console.log('Value:', this.usernameControl.value);
+  console.log('validation status:',this.usernameControl.valid);
+  console.log(this.usernameControl.errors);
+}
 
 
 
-  formSubmit(myForm: NgForm)
-  {
-    if(myForm.valid)
-    {
-      const formsvalue = JSON.stringify(myForm.value);
-      console.log(formsvalue);
-      console.log('%c Form submitted successfully', 'color: green; form-weight: 400; font-size: 15px;');
-    }
-    else
-    {
-      alert("please fill up the required fields");
-    }
-  }
-  resetValue(myForm: NgForm)
-  {
-    myForm.resetForm();
-  }
-  setDefault(myForm : NgForm)
-  {
-    myForm.resetForm({
-      name:'Default Name',
-      email: 'default@gmail.com',
-    });
-  }
+
 
 }
 

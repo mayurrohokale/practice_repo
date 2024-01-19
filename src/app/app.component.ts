@@ -16,16 +16,33 @@ import { NgForm } from '@angular/forms';
 
 
 export class AppComponent {
-  
-  user: {username:string}= {username:''};
-  submitForm(myForm: NgForm)
+
+
+
+
+  formSubmit(myForm: NgForm)
   {
     if(myForm.valid)
     {
-      alert("Submitted successfully, check console");
-      console.log(this.user);
+      const formsvalue = JSON.stringify(myForm.value);
+      console.log(formsvalue);
+      console.log('%c Form submitted successfully', 'color: green; form-weight: 400; font-size: 15px;');
     }
-
+    else
+    {
+      alert("please fill up the required fields");
+    }
+  }
+  resetValue(myForm: NgForm)
+  {
+    myForm.resetForm();
+  }
+  setDefault(myForm : NgForm)
+  {
+    myForm.resetForm({
+      name:'Default Name',
+      email: 'default@gmail.com',
+    });
   }
 
 }

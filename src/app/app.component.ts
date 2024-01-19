@@ -5,7 +5,7 @@ import { DatePipe } from '@angular/common';
 import { AdminModule } from './admin/admin.module';
 import { DemoService } from './dependencies/demo.service';
 import { FormControl, Validators, NgForm, ReactiveFormsModule } from '@angular/forms';
-
+import { FormGroup } from '@angular/forms';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -17,21 +17,28 @@ import { FormControl, Validators, NgForm, ReactiveFormsModule } from '@angular/f
 
 export class AppComponent {
 
-usernameControl = new FormControl('',[
-  Validators.required,
-  Validators.minLength(4),
-  Validators.maxLength(10),
-  Validators.pattern('^[a-zA-Z0-9]+$')
-]);
+myForm: FormGroup;
 
-showValue()
+constructor()
 {
-  console.log('Value:', this.usernameControl.value);
-  console.log('validation status:',this.usernameControl.valid);
-  console.log(this.usernameControl.errors);
+  this.myForm = new FormGroup({
+    name: new FormControl('', Validators.required),
+    email: new FormControl('',[Validators.required, Validators.email]),
+    age: new FormControl('',Validators.min(18)),
+  });
 }
 
-
+submitForm()
+{
+  const userAge = this.myForm.get('age')?.value;
+  if(userAge < 18)
+  {
+    alert('Age must be 18');
+    return;
+  }
+  else if(this.myForm.valid)
+  {console.log(this.myForm.value);}
+}
 
 
 

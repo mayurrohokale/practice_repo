@@ -5,7 +5,7 @@ import { DatePipe } from '@angular/common';
 import { AdminModule } from './admin/admin.module';
 import { DemoService } from './dependencies/demo.service';
 import { FormControl, Validators, NgForm, ReactiveFormsModule } from '@angular/forms';
-import { FormGroup,FormArray } from '@angular/forms';
+import { FormGroup,FormArray, FormBuilder } from '@angular/forms';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -19,10 +19,10 @@ export class AppComponent {
 
 employeeForm: FormGroup;
 
-constructor()
+constructor(private fb: FormBuilder)
 {
-  this.employeeForm = new FormGroup({
-    employees: new FormArray([]),
+  this.employeeForm = this.fb.group({
+    employees: this.fb.array([]),
   });
 }
 
@@ -31,9 +31,9 @@ get employees(): FormArray {
 }
 
 addEmployee():void{
-  const employeeGroup = new FormGroup({
-    name: new FormControl(''),
-    job: new FormControl(''),
+  const employeeGroup = this.fb.group({
+    name: [''],
+    job: [''],
   });
   this.employees.push(employeeGroup);
 }

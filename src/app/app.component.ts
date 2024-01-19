@@ -17,30 +17,23 @@ import { FormGroup,FormArray, FormBuilder } from '@angular/forms';
 
 export class AppComponent {
 
-employeeForm: FormGroup;
+  myForm: FormGroup;
+  nameControl: FormControl;
+  emailControl: FormControl;
 
-constructor(private fb: FormBuilder)
-{
-  this.employeeForm = this.fb.group({
-    employees: this.fb.array([]),
-  });
-}
+  constructor(){
+    this.nameControl = new FormControl('', Validators.required);
+    this.emailControl = new FormControl('',[Validators.required, Validators.email]);
+    this.myForm=new FormGroup({
+      name: this.nameControl,
+      email: this.emailControl,
+    });
+  }
+  formSubmit(){
+    if(this.myForm.valid){
+      console.log(this.myForm.value);
+    }
+  }
 
-get employees(): FormArray {
-  return this.employeeForm.get('employees') as FormArray;
-}
-
-addEmployee():void{
-  const employeeGroup = this.fb.group({
-    name: [''],
-    job: [''],
-  });
-  this.employees.push(employeeGroup);
-}
-
-submitForm()
-{
-  console.log(this.employeeForm.value);
-}
 
 }

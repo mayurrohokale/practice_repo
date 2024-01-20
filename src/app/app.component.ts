@@ -6,6 +6,7 @@ import { AdminModule } from './admin/admin.module';
 import { DemoService } from './dependencies/demo.service';
 import { FormControl, Validators, NgForm, ReactiveFormsModule } from '@angular/forms';
 import { FormGroup,FormArray, FormBuilder } from '@angular/forms';
+import { convertToUpperCase } from './custom-validators/upperCase-validators';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -20,11 +21,11 @@ export class AppComponent {
 
   constructor(private fb: FormBuilder){
     this.myForm = this.fb.group({
-      password: ['', [Validators.required, Validators.minLength(8),
-          Validators.pattern(/^(?=.*[A-Z])(?=.*[@$!*&])(?!\s).*$/)
-        ]
-      ]
-    })
+      name:['', Validators.required, convertToUpperCase],
+    });
+        
+      
+    
   }
 
   formSubmit(){

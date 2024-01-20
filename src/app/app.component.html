@@ -1,23 +1,9 @@
 <div class="container">
   <form [formGroup]="myForm" (ngSubmit)="formSubmit()">
     <div class="mb-3">
-      <label for="inputPasswords" class="form-label">Password</label>
-      <input
-        type="password"
-        id="inputPasswords"
-        class="form-control"
-        aria-labelledby="passwordHelpBlock"
-        formControlName="password"
-        required
-      />
-
-      <div *ngIf="myForm.get('password')?.dirty && myForm.get('password')?.invalid">
-        <div class="form-label text-danger" *ngIf="myForm.get('password')?.errors?.['required']">*Password Required</div>
-      </div>
-      <div class="form-label text-danger" *ngIf="myForm.get('password')?.errors?.['minlength']">*Password must be 8 characters long</div>
-      <div class="form-label text-danger" *ngIf="myForm.get('password')?.hasError('pattern') && !myForm.get('password')?.errors?.['required'] && !myForm.get('password')?.errors?.['minlength']">*Password must contain atleast one capital letter</div>
-    
-    
+      <label for="inputName" class="form-label">Name</label>
+      <input type="text" id="inputName" class="form-control"
+      formControlName="name" required>
     </div>
     <div class="btn-group d-flex">
       <button class="btn btn-success" type="submit">Submit</button>

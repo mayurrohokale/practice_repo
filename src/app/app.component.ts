@@ -6,7 +6,7 @@ import { AdminModule } from './admin/admin.module';
 import { DemoService } from './dependencies/demo.service';
 import { FormControl, Validators, NgForm, ReactiveFormsModule } from '@angular/forms';
 import { FormGroup,FormArray, FormBuilder } from '@angular/forms';
-import { convertToUpperCase } from './custom-validators/upperCase-validators';
+import { urlValidator } from './custom-validators/upperCase-validators';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -17,22 +17,24 @@ import { convertToUpperCase } from './custom-validators/upperCase-validators';
 
 
 export class AppComponent {
-  myForm: FormGroup;
+  validateURL: FormGroup;
 
-  constructor(private fb: FormBuilder){
-    this.myForm = this.fb.group({
-      name:['', Validators.required, convertToUpperCase],
+  constructor(private fb: FormBuilder)
+  {
+    this.validateURL = this.fb.group({
+      checkURL:['',Validators.required, urlValidator]
     });
-        
-      
-    
   }
 
-  formSubmit(){
-    if(this.myForm.valid)
+  validate()
+  {
+    if(!this.validateURL.valid)
     {
-      console.log(this.myForm.value);
-      console.log("Form Submitted Successfully");
+      alert("Please enter correct URL");
+      return false;
+    }
+    else{
+      return alert("URL is Valis");
     }
   }
 }

@@ -1,11 +1,15 @@
 <div class="container">
-  <form [formGroup]="myForm" (ngSubmit)="formSubmit()">
+  <form [formGroup]="validateURL" (ngSubmit)="validate()">
     <div class="mb-3">
-      <label for="inputName" class="form-label">Name</label>
-      <input type="text" id="inputName" class="form-control"
-      formControlName="name" required>
+      <label for="inputName" class="form-label">Enter URL</label>
+      <input type="text" class="form-control" placeholder="https://urlname.com"
+      formControlName="checkURL" required>
+
+      <div class="form-label text-danger mt-1" *ngIf="validateURL.get('checkURL')?.dirty && validateURL.get('checkURL')?.errors?.['urlvalid']">
+        <sup>*</sup>URL Format is not valid(https://website.com)
+      </div>
     </div>
-    <div class="btn-group d-flex">
+    <div class="btn-group d-grid mb-3">
       <button class="btn btn-success" type="submit">Submit</button>
     </div>
   </form>

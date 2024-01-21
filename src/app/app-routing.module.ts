@@ -3,9 +3,10 @@ import { RouterModule, Routes } from '@angular/router';
 import { DemoComponent } from './demo/demo.component';
 import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
+import { testGuard } from './test.guard';
 const routes: Routes = [
-  {path: '', redirectTo:'/demo',pathMatch:'full'},
-  {path:'demo', component: DemoComponent},
+  
+  {path:'demo', component: DemoComponent, canActivate: [testGuard]},
 ];
 
 @NgModule({

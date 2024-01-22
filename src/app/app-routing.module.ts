@@ -6,11 +6,14 @@ import { SignupComponent } from './signup/signup.component';
 import { testGuard } from './test.guard';
 import { AppComponent } from './app.component';
 import { formGuardGuard } from './form-guard.guard';
+import { loadAdminGuard } from './guards/load-admin.guard';
 const routes: Routes = [
-  {path:'', redirectTo: '/app', pathMatch: 'full'},
-  {path:'app', component: AppComponent},
-  {path: 'login', component: LoginComponent, canDeactivate:[formGuardGuard]},
-  
+  {path: 'login', 
+  canMatch:[loadAdminGuard],
+loadChildren:()=> import('./admin/admin.module').then((m)=> m.AdminModule) },
+{path: 'login',
+loadChildren:()=> import('./demo/demo.component').then((u)=> u.DemoComponent)},
+{path: '**', component: LoginComponent}
   
 ];
 

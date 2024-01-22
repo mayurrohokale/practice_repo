@@ -7,6 +7,7 @@ import { DemoService } from './dependencies/demo.service';
 import { FormControl, Validators, NgForm, ReactiveFormsModule } from '@angular/forms';
 import { FormGroup,FormArray, FormBuilder } from '@angular/forms';
 import { urlValidator } from './custom-validators/upperCase-validators';
+import { Observable } from 'rxjs';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -17,24 +18,9 @@ import { urlValidator } from './custom-validators/upperCase-validators';
 
 
 export class AppComponent {
-  validateURL: FormGroup;
-
-  constructor(private fb: FormBuilder)
-  {
-    this.validateURL = this.fb.group({
-      checkURL:['',Validators.required, urlValidator]
-    });
-  }
-
-  validate()
-  {
-    if(!this.validateURL.valid)
-    {
-      alert("Please enter correct URL");
-      return false;
-    }
-    else{
-      return alert("URL is Valis");
-    }
+  constructor(){
+    const observable = new Observable(()=>{
+      console.log("Observable Executed...");
+    }).subscribe();
   }
 }

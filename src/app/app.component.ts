@@ -21,13 +21,17 @@ export class AppComponent {
   
   observable = new Observable((observer)=>{
     observer.next('Hello');
-    observer.error('An error Occurred');
+    // observer.error('An error Occurred');
+    observer.complete();
   }).subscribe({
     next(value){
       console.log("Recieved value: ", value);
     },
-    error(err){
-      console.log('Error:',err);
+    // error(err){
+    //   console.log('Error:',err);
+    // },
+    complete(){
+      console.log("observable compelted.....");
     }
   });
 

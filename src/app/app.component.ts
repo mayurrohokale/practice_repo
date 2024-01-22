@@ -18,9 +18,18 @@ import { Observable } from 'rxjs';
 
 
 export class AppComponent {
-  constructor(){
-    const observable = new Observable(()=>{
-      console.log("Observable Executed...");
-    }).subscribe();
-  }
+  
+  observable = new Observable((observer)=>{
+    observer.next('Hello');
+    observer.error('An error Occurred');
+  }).subscribe({
+    next(value){
+      console.log("Recieved value: ", value);
+    },
+    error(err){
+      console.log('Error:',err);
+    }
+  });
+
+
 }

@@ -22,15 +22,19 @@ export class AppComponent {
 value$ : Observable<number>;
 
 constructor(){
-  this.value$ = new Observable<number>((observer)=>{
-    setTimeout(()=>{
-      observer.next(1);
-      observer.next(2);
-      observer.next(3);
-      observer.next(4);
-      observer.complete();
-    },2000);
-    
+  this.value$ = new Observable<any>((observer)=>{
+    setInterval(()=>{
+      const date = new Date();
+      const estTime = date.toLocaleString('en-US',
+      {
+        timeZone: "America/New_York",
+        dateStyle: 'full',
+        timeStyle: 'full'
+      });
+
+      observer.next(estTime);
+
+    },1000);
     });
 }
   

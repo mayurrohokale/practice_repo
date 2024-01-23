@@ -18,34 +18,21 @@ import { Observable } from 'rxjs';
 
 
 export class AppComponent {
-  
-  observable = new Observable<number>((observer)=>{
-    let count = 0;
+ 
+value$ : Observable<number>;
 
-    const interval = setInterval(()=>{
-      observer.next(count++);
-    },1000);
-
-    return()=>{
-      clearInterval(interval);
-      console.log("Interval Cleared.....");
-    }
-  });
-
-  
-
-  constructor(){
-    const obs =this.observable.subscribe((data)=>{
-      console.log("data: ",data);
-    });
+constructor(){
+  this.value$ = new Observable<number>((observer)=>{
     setTimeout(()=>{
-      obs.unsubscribe();
-      console.log("Unsubscribed");
-    },5000);
-  }
-
+      observer.next(1);
+      observer.next(2);
+      observer.next(3);
+      observer.next(4);
+      observer.complete();
+    },2000);
+    
+    });
+}
   
-   
-
 
 }

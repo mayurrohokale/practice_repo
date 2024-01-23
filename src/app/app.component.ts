@@ -19,21 +19,33 @@ import { Observable } from 'rxjs';
 
 export class AppComponent {
   
-  observable = new Observable((observer)=>{
-    observer.next('Hello');
-    // observer.error('An error Occurred');
-    observer.complete();
-  }).subscribe({
-    next(value){
-      console.log("Recieved value: ", value);
-    },
-    // error(err){
-    //   console.log('Error:',err);
-    // },
-    complete(){
-      console.log("observable compelted.....");
+  observable = new Observable<number>((observer)=>{
+    let count = 0;
+
+    const interval = setInterval(()=>{
+      observer.next(count++);
+    },1000);
+
+    return()=>{
+      clearInterval(interval);
+      console.log("Interval Cleared.....");
     }
   });
+
+  
+
+  constructor(){
+    const obs =this.observable.subscribe((data)=>{
+      console.log("data: ",data);
+    });
+    setTimeout(()=>{
+      obs.unsubscribe();
+      console.log("Unsubscribed");
+    },5000);
+  }
+
+  
+   
 
 
 }

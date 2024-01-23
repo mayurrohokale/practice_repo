@@ -8,6 +8,7 @@ import { FormControl, Validators, NgForm, ReactiveFormsModule } from '@angular/f
 import { FormGroup,FormArray, FormBuilder } from '@angular/forms';
 import { urlValidator } from './custom-validators/upperCase-validators';
 import { Observable } from 'rxjs';
+import { of } from 'rxjs';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -19,22 +20,10 @@ import { Observable } from 'rxjs';
 
 export class AppComponent {
  
-  jsonData$:Observable<any> | undefined;
-
   constructor(){
-    this.fetchData();
+    const observable = of(1,2,3,4,5,6);
+    observable.subscribe(val => console.log(val));
+  
   }
-  fetchData()
-  {
-    this.jsonData$ = new Observable<any>((observer)=>{
-      fetch('https://dummyjson.com/products/categories')
-      .then(response => response.json())
-      .then((data)=>{
-        observer.next(data);
-        observer.complete();
-      })
-      .catch(err => observer.error(err));
-    });
-  };
 
 }

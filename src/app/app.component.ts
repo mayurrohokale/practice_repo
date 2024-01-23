@@ -10,6 +10,7 @@ import { urlValidator } from './custom-validators/upperCase-validators';
 import { Observable } from 'rxjs';
 import { of } from 'rxjs';
 import { from } from 'rxjs';
+import { interval } from 'rxjs';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -21,8 +22,8 @@ import { from } from 'rxjs';
 
 export class AppComponent implements OnInit {
   ngOnInit() {
-    const p = from(new Promise(resolve => resolve("this is a resolve message")));
-    p.subscribe(val => console.log(val));
+    const obs = interval(1000);
+    obs.subscribe(val => console.log(val));
   }
  
   

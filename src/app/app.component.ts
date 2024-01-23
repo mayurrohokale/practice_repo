@@ -11,6 +11,7 @@ import { Observable } from 'rxjs';
 import { of } from 'rxjs';
 import { from } from 'rxjs';
 import { interval } from 'rxjs';
+import { timer } from 'rxjs';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -22,8 +23,9 @@ import { interval } from 'rxjs';
 
 export class AppComponent implements OnInit {
   ngOnInit() {
-    const obs = interval(1000);
-    obs.subscribe(val => console.log(val));
+    
+    timer(0, 1000).subscribe(val=> console.log('Timer value: ${val}'));
+    interval(1000).subscribe(val => console.log('Interval Value: ${Val}'));
   }
  
   

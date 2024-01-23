@@ -19,24 +19,22 @@ import { Observable } from 'rxjs';
 
 export class AppComponent {
  
-value$ : Observable<number>;
+  jsonData$:Observable<any> | undefined;
 
-constructor(){
-  this.value$ = new Observable<any>((observer)=>{
-    setInterval(()=>{
-      const date = new Date();
-      const estTime = date.toLocaleString('en-US',
-      {
-        timeZone: "America/New_York",
-        dateStyle: 'full',
-        timeStyle: 'full'
-      });
-
-      observer.next(estTime);
-
-    },1000);
+  constructor(){
+    this.fetchData();
+  }
+  fetchData()
+  {
+    this.jsonData$ = new Observable<any>((observer)=>{
+      fetch('https://dummyjson.com/products/categories')
+      .then(response => response.json())
+      .then((data)=>{
+        observer.next(data);
+        observer.complete();
+      })
+      .catch(err => observer.error(err));
     });
-}
-  
+  };
 
 }

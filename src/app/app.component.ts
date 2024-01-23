@@ -21,7 +21,9 @@ import { of } from 'rxjs';
 export class AppComponent {
  
   constructor(){
-    const observable = of(1,2,3,4,5,6);
+    const observable = of({name: 'XYZ'}, [1,2,3,4,5], function msg(){
+      return 'HEllo';
+    });
     observable.subscribe(val => console.log(val));
   
   }

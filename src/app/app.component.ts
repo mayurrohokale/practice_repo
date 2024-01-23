@@ -9,6 +9,7 @@ import { FormGroup,FormArray, FormBuilder } from '@angular/forms';
 import { urlValidator } from './custom-validators/upperCase-validators';
 import { Observable } from 'rxjs';
 import { of } from 'rxjs';
+import { from } from 'rxjs';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -18,14 +19,12 @@ import { of } from 'rxjs';
 
 
 
-export class AppComponent {
- 
-  constructor(){
-    const observable = of({name: 'XYZ'}, [1,2,3,4,5], function msg(){
-      return 'HEllo';
-    });
-    observable.subscribe(val => console.log(val));
-  
+export class AppComponent implements OnInit {
+  ngOnInit() {
+    const p = from(new Promise(resolve => resolve("this is a resolve message")));
+    p.subscribe(val => console.log(val));
   }
+ 
+  
 
 }

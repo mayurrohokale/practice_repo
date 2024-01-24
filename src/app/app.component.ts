@@ -13,6 +13,7 @@ import { from } from 'rxjs';
 import { interval } from 'rxjs';
 import { timer } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
+import { ConstantPool } from '@angular/compiler';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -27,15 +28,23 @@ export class AppComponent {
   constructor(private http: HttpClient){}
 
   putData(){
-    const user ={
-      id: 103,
-      name: 'PQR',
-      email:'pqr@gmail.com'
-    }
+    this.http.get<any>('http://localhost:3000/users/101').subscribe((updatedData)=>{
+      updatedData.name = 'GHI';
+      updatedData.email = 'ghi@gmail.com';
 
-    this.http.put('http://localhost:3000/users/103', user).subscribe((response)=>{
-      console.log("user updated : ", response);
+
+      this.http.put('http://localhost:3000/users/103', updatedData).subscribe({ next: (response)=>{
+        console.log("user updated : ", response);
+        },
+
+        error:(err)=>{
+          console.error("Error updating the Data: ", err);
+        }
+      });
+
     })
+
+   
   }
 
 }

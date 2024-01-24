@@ -24,17 +24,16 @@ import { HttpClient } from '@angular/common/http';
 
 export class AppComponent {
 
-  responseData: any;
+  responseData$: Observable<any> | undefined;
   loadData: boolean =false
 
   constructor(private http: HttpClient){
     
   }
   getData(){
-    this.http.get('https://jsonplaceholder.typicode.com/users').subscribe((data)=>{
-      this.responseData = data;
+    this.responseData$ = this.http.get('https://jsonplaceholder.typicode.com/users');
       this.loadData = true;
-    });
+    
   }
 
 }

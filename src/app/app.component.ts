@@ -24,17 +24,18 @@ import { HttpClient } from '@angular/common/http';
 
 export class AppComponent {
 
- constructor(private http:HttpClient){}
+  constructor(private http: HttpClient){}
 
- postData(){
-  const user = {
-    id: 102,
-    name: 'XYABCZ',
-    email: 'abc@gmail.com'
+  putData(){
+    const user ={
+      id: 103,
+      name: 'PQR',
+      email:'pqr@gmail.com'
+    }
+
+    this.http.put('http://localhost:3000/users/103', user).subscribe((response)=>{
+      console.log("user updated : ", response);
+    })
   }
-  this.http.post('http://localhost:3000/user',user).subscribe((response)=>{
-    console.log('User Updated: ',response);
-  });
- }
 
 }

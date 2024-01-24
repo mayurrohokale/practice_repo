@@ -24,16 +24,17 @@ import { HttpClient } from '@angular/common/http';
 
 export class AppComponent {
 
-  responseData$: Observable<any> | undefined;
-  loadData: boolean =false
+ constructor(private http:HttpClient){}
 
-  constructor(private http: HttpClient){
-    
+ postData(){
+  const user = {
+    id: 102,
+    name: 'XYABCZ',
+    email: 'abc@gmail.com'
   }
-  getData(){
-    this.responseData$ = this.http.get('https://jsonplaceholder.typicode.com/users');
-      this.loadData = true;
-    
-  }
+  this.http.post('http://localhost:3000/user',user).subscribe((response)=>{
+    console.log('User Updated: ',response);
+  });
+ }
 
 }

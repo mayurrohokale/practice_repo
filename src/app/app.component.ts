@@ -12,6 +12,7 @@ import { of } from 'rxjs';
 import { from } from 'rxjs';
 import { interval } from 'rxjs';
 import { timer } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -21,13 +22,19 @@ import { timer } from 'rxjs';
 
 
 
-export class AppComponent implements OnInit {
-  ngOnInit() {
+export class AppComponent {
+
+  responseData: any;
+  loadData: boolean =false
+
+  constructor(private http: HttpClient){
     
-    timer(0, 1000).subscribe(val=> console.log('Timer value: ${val}'));
-    interval(1000).subscribe(val => console.log('Interval Value: ${Val}'));
   }
- 
-  
+  getData(){
+    this.http.get('https://jsonplaceholder.typicode.com/users').subscribe((data)=>{
+      this.responseData = data;
+      this.loadData = true;
+    });
+  }
 
 }

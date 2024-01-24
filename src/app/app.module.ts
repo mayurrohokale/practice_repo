@@ -19,7 +19,7 @@ import { AdminModule } from './admin/admin.module';
 import { DemoService } from './dependencies/demo.service';
 import { PowerService } from './dependencies/power.service';
 import { admin_data } from './dependencies/admin_data';
-
+import {HttpClientModule} from '@angular/common/http';
 @NgModule({
   declarations: [
     AppComponent,
@@ -35,7 +35,8 @@ import { admin_data } from './dependencies/admin_data';
     AppRoutingModule,
     BrowserAnimationsModule,
     MatFormFieldModule, MatInputModule, FormsModule, ReactiveFormsModule,
-    AdminModule
+    AdminModule,
+    HttpClientModule
   ],
   
   providers:[

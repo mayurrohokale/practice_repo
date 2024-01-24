@@ -27,24 +27,23 @@ export class AppComponent {
 
   constructor(private http: HttpClient){}
 
-  putData(){
-    this.http.get<any>('http://localhost:3000/users/101').subscribe((updatedData)=>{
-      updatedData.name = 'GHI';
-      updatedData.email = 'ghi@gmail.com';
-
-
-      this.http.put('http://localhost:3000/users/103', updatedData).subscribe({ next: (response)=>{
-        console.log("user updated : ", response);
-        },
-
-        error:(err)=>{
-          console.error("Error updating the Data: ", err);
-        }
-      });
-
+  userId:string = "";
+  deleteData(){
+    if(!this.userId)
+    {
+      alert("please enter valid user id");
+      return;
+    }
+    this.http.delete(`http://localhost:3000/users/${this.userId}`)
+    .subscribe({
+      next:()=>{
+        console.log("Deleted Successfully");
+      },
+      error: (err)=>{
+        console.error(`Error! ${err}`);
+      }
     })
-
-   
   }
+
 
 }

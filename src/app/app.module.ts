@@ -20,6 +20,8 @@ import { DemoService } from './dependencies/demo.service';
 import { PowerService } from './dependencies/power.service';
 import { admin_data } from './dependencies/admin_data';
 import {HttpClientModule} from '@angular/common/http';
+import { ProductsModule } from './products/products.module';
+import { ProductService } from './services/product.service';
 @NgModule({
   declarations: [
     AppComponent,
@@ -36,12 +38,13 @@ import {HttpClientModule} from '@angular/common/http';
     BrowserAnimationsModule,
     MatFormFieldModule, MatInputModule, FormsModule, ReactiveFormsModule,
     AdminModule,
-    HttpClientModule
+    HttpClientModule,
+    ProductsModule
   ],
   
   providers:[
-    DemoService, {provide:PowerService, useExisting: DemoService
-  }
+    
+    ProductService
   ],
   bootstrap: [AppComponent]
 })

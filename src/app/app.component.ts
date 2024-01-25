@@ -25,7 +25,12 @@ import { ConstantPool } from '@angular/compiler';
 
 export class AppComponent {
 
-  count = signal(0);
+  count = signal<number>(0);
+
+  incrCounter(){
+    this.count.set(this.count() + 1);
+    console.log("signal value: ",this.count());
+  }
 
 
 }

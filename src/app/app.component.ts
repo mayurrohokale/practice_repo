@@ -1,4 +1,4 @@
-import { AfterContentChecked, AfterContentInit, AfterViewInit, Component, ElementRef, HostBinding, HostListener, Inject, OnInit, ViewChild } from '@angular/core';
+import { AfterContentChecked, AfterContentInit, AfterViewInit, Component, ElementRef, HostBinding, HostListener, Inject, OnInit, ViewChild, signal } from '@angular/core';
 import { Directive } from '@angular/core';
 import { LoginComponent } from './login/login.component';
 import { DatePipe } from '@angular/common';
@@ -25,25 +25,7 @@ import { ConstantPool } from '@angular/compiler';
 
 export class AppComponent {
 
-  constructor(private http: HttpClient){}
-
-  userId:string = "";
-  deleteData(){
-    if(!this.userId)
-    {
-      alert("please enter valid user id");
-      return;
-    }
-    this.http.delete(`http://localhost:3000/users/${this.userId}`)
-    .subscribe({
-      next:()=>{
-        console.log("Deleted Successfully");
-      },
-      error: (err)=>{
-        console.error(`Error! ${err}`);
-      }
-    })
-  }
+  count = signal(0);
 
 
 }

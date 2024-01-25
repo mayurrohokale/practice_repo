@@ -9,7 +9,7 @@ import { formGuardGuard } from './form-guard.guard';
 import { loadAdminGuard } from './guards/load-admin.guard';
 const routes: Routes = [
 
- {path: '', redirectTo:'products/home', pathMatch:'full'}
+
   
 ];
 

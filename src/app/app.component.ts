@@ -23,14 +23,21 @@ import { ConstantPool } from '@angular/compiler';
 
 
 
-export class AppComponent {
+export class AppComponent implements OnInit{
 
-  count = signal<number>(0);
+  cart = signal({
+    name: 'product-1',
+    email:'xyz@gmail.com'
+  });
 
-  incrCounter(){
-    this.count.update(res => res + 1);
-    console.log("signal value: ",this.count());
+  ngOnInit(): void {
+    console.log("Previous cart: ", this.cart());
+    this.cart.update((cartDetails) => ({
+      ...cartDetails,
+      qty: 3,
+      name: 'product-2'
+    }));
+    console.log("Update cart: ", this.cart());
   }
-
 
 }

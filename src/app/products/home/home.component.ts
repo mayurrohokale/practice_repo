@@ -21,4 +21,10 @@ export class HomeComponent implements OnInit {
     })
   }
 
+  deleteProduct(id:number){
+    this.productSevice.deleteProduct(id).subscribe(()=>{
+      this.products = this.products.filter(product => product.id != id);
+    });
+  }
+
 }

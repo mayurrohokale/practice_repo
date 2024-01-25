@@ -14,6 +14,7 @@
                 <td>{{item.name}}</td>
                 <td>{{item.price | currency: 'USD'}}</td>
                 <td>
+                    <button type="button" class="btn btn-danger" (click)="deleteProduct(item.id)">Delete</button>
                     <a class="btn btn-primary" [routerLink]="['/products/edit',item.id]">Edit</a>
                 </td>
             </tr>

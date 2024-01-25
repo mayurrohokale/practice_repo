@@ -28,7 +28,7 @@ export class AppComponent {
   count = signal<number>(0);
 
   incrCounter(){
-    this.count.set(this.count() + 1);
+    this.count.update(res => res + 1);
     console.log("signal value: ",this.count());
   }
 

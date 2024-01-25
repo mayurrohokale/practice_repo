@@ -5,6 +5,7 @@
                 <th scope="col">Id</th>
                 <th scope="col">Name</th>
                 <th scope="col">Price</th>
+                <th scope="col">Actions</th>
             </tr>
         </thead>
         <tbody>
@@ -12,6 +13,9 @@
                 <th scope="row">{{item.id}}</th>
                 <td>{{item.name}}</td>
                 <td>{{item.price | currency: 'USD'}}</td>
+                <td>
+                    <a class="btn btn-primary" [routerLink]="['/products/edit',item.id]">Edit</a>
+                </td>
             </tr>
         </tbody>
 

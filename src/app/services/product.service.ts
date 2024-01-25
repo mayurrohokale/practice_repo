@@ -8,6 +8,8 @@ import { HttpClient } from '@angular/common/http';
 export class ProductService {
 
   private url = 'http://localhost:3000/products';
+  paraMap: any;
+  paramMap: any;
 
   constructor(private http : HttpClient) { }
 
@@ -17,6 +19,14 @@ export class ProductService {
 
   createProduct(newProduct: Products){
     return this.http.post<Products>(this.url, newProduct);
+  }
+
+  getProductsById(id: number){
+    return this.http.get<Products>(`${this.url}/${id}`);
+  }
+
+  updateProduct(data: Products){
+    return this.http.put(`${this.url}/${data.id}`, data);
   }
 
 }

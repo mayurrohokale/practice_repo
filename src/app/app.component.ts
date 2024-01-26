@@ -1,4 +1,4 @@
-import { AfterContentChecked, AfterContentInit, AfterViewInit, Component, ElementRef, HostBinding, HostListener, Inject, OnInit, ViewChild, signal } from '@angular/core';
+import { AfterContentChecked, AfterContentInit, AfterViewInit, Component, ElementRef, HostBinding, HostListener, Inject, OnInit, ViewChild, WritableSignal, signal } from '@angular/core';
 import { Directive } from '@angular/core';
 import { LoginComponent } from './login/login.component';
 import { DatePipe } from '@angular/common';
@@ -25,25 +25,23 @@ import { ConstantPool } from '@angular/compiler';
 
 export class AppComponent implements OnInit{
 
-  arr = signal([1,2,3,4]);
+  todoName='';
 
-  modifyArray(){
-    this.arr.mutate((val)=> val[0] = 10);
+  todos: WritableSignal<string[]> = signal([]);
+
+  addTodo(todo: HTMLInputElement){
+    const item = todo.value;
+    this.todos.update(todos => [item, ...todos])
   }
 
-  cart = signal([{
-    name: 'product-1',
-    email:'xyz@gmail.com'
+  removeTodo(index: number):void{
+    this.todos.mutate((i)=> {
+      i.splice(index, 1);
+    })
   }
-    
-  ]);
 
   ngOnInit(): void {
-   this.cart.mutate((cartDetails)=> [
-    cartDetails.push({name: 'product-2', email: 'pqr@gmail.com'}),
-    cartDetails.push({name: 'product-3', email: 'efg@gmail.com'})
-   ]);
-   console.log(this.cart());
+  
   }
 
 }

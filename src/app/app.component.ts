@@ -25,19 +25,19 @@ import { ConstantPool } from '@angular/compiler';
 
 export class AppComponent implements OnInit{
 
-  cart = signal({
+  cart = signal([{
     name: 'product-1',
     email:'xyz@gmail.com'
-  });
+  }
+    
+  ]);
 
   ngOnInit(): void {
-    console.log("Previous cart: ", this.cart());
-    this.cart.update((cartDetails) => ({
-      ...cartDetails,
-      qty: 3,
-      name: 'product-2'
-    }));
-    console.log("Update cart: ", this.cart());
+   this.cart.mutate((cartDetails)=> [
+    cartDetails.push({name: 'product-2', email: 'pqr@gmail.com'}),
+    cartDetails.push({name: 'product-3', email: 'efg@gmail.com'})
+   ]);
+   console.log(this.cart());
   }
 
 }

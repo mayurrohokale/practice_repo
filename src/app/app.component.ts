@@ -31,7 +31,9 @@ export class AppComponent implements OnInit{
 
   addTodo(todo: HTMLInputElement){
     const item = todo.value;
-    this.todos.update(todos => [item, ...todos])
+    this.todos.update(todos => [item, ...todos]);
+    todo.value="";
+    todo.focus();
   }
 
   removeTodo(index: number):void{

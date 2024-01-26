@@ -25,6 +25,12 @@ import { ConstantPool } from '@angular/compiler';
 
 export class AppComponent implements OnInit{
 
+  arr = signal([1,2,3,4]);
+
+  modifyArray(){
+    this.arr.mutate((val)=> val[0] = 10);
+  }
+
   cart = signal([{
     name: 'product-1',
     email:'xyz@gmail.com'

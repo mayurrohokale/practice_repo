@@ -1,6 +1,9 @@
 
 <h1>Angular <span>Signals</span></h1>
-<h2>Angular increment counter with signal</h2>
 <div>
-<p>{{cart() | json}}</p>
+    <ul>
+        <li *ngFor="let value of arr()" >{{value}}</li>
+
+    </ul>
+    <button (click)="modifyArray()">Add</button>
 </div>

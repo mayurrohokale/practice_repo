@@ -1,4 +1,4 @@
-import { AfterContentChecked, AfterContentInit, AfterViewInit, Component, ElementRef, HostBinding, HostListener, Inject, OnInit, ViewChild, WritableSignal, signal } from '@angular/core';
+import { AfterContentChecked, AfterContentInit, AfterViewInit, Component, ElementRef, HostBinding, HostListener, Inject, OnInit, ViewChild, WritableSignal, computed, signal } from '@angular/core';
 import { Directive } from '@angular/core';
 import { LoginComponent } from './login/login.component';
 import { DatePipe } from '@angular/common';
@@ -25,22 +25,8 @@ import { ConstantPool } from '@angular/compiler';
 
 export class AppComponent implements OnInit{
 
-  todoName='';
-
-  todos: WritableSignal<string[]> = signal([]);
-
-  addTodo(todo: HTMLInputElement){
-    const item = todo.value;
-    this.todos.update(todos => [item, ...todos]);
-    todo.value="";
-    todo.focus();
-  }
-
-  removeTodo(index: number):void{
-    this.todos.mutate((i)=> {
-      i.splice(index, 1);
-    })
-  }
+  count = signal(10);
+  remainingCount = computed(() => 100-this.count());
 
   ngOnInit(): void {
   

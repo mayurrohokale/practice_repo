@@ -25,9 +25,18 @@ import { ConstantPool } from '@angular/compiler';
 
 export class AppComponent implements OnInit{
 
+
+  arr = signal([1,2,3,4]);
+  sumArr = computed(()=> this.arr().reduce((sum, i) => sum + i));
+
   count = signal(10);
   remainingCount = computed(() => 100-this.count());
 
+
+
+   modifyArray(){
+    this.arr.mutate(val => val.push(10));
+   }
   ngOnInit(): void {
   
   }

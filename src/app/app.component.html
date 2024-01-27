@@ -1,2 +1,12 @@
 <h2>Signal: {{count()}}</h2>
 <h2>RemainingCount: {{remainingCount()}}</h2>
+<div>
+    <ul>
+        <li *ngFor="let value of arr()">
+            {{value}}
+        </li>
+    </ul>
+    <button (click)="modifyArray()">Add value</button>
+
+    <h2>Sum of Array: {{sumArr()}}</h2>
+</div>

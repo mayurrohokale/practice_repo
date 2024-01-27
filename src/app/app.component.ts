@@ -1,4 +1,4 @@
-import { AfterContentChecked, AfterContentInit, AfterViewInit, Component, ElementRef, HostBinding, HostListener, Inject, OnInit, ViewChild, WritableSignal, computed, effect, signal } from '@angular/core';
+import { AfterContentChecked, AfterContentInit, AfterViewInit, Component, ElementRef, HostBinding, HostListener, Inject, OnInit, ViewChild, WritableSignal, computed, effect, signal, untracked } from '@angular/core';
 import { Directive } from '@angular/core';
 import { LoginComponent } from './login/login.component';
 import { DatePipe } from '@angular/common';
@@ -25,24 +25,20 @@ import { ConstantPool } from '@angular/compiler';
 
 export class AppComponent implements OnInit{
 
+  counter1 = signal(0);
+  counter2 = signal(0);
 
+  counterUpdate = effect(()=> [
+    console.log(`Counter 1: ${this.counter1()} \n Counter 2: ${ untracked(()=>  this.counter2()) } `)
+  ])
 
-  constructor(){
-    effect(() => {
-      if(this.sumArr() > 30) alert(`Max value Reached ${this.sumArr()}`);
-    })
+  updateCounter1(){
+    this.counter1.update(() => this.counter1() +1);
+
   }
-  arr = signal([1,2,3,4]);
-  sumArr = computed(()=> this.arr().reduce((sum, i) => sum + i));
-
-  count = signal(20);
-  remainingCount = computed(() => 100-this.count());
-
-
-
-   modifyArray(){
-    this.arr.mutate(val => val.push(10));
-   }
+  updateCounter2(){
+    this.counter2.update(()=> this.counter2() + 1);
+  }
   ngOnInit(): void {
   
   }

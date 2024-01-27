@@ -25,20 +25,36 @@ import { ConstantPool } from '@angular/compiler';
 
 export class AppComponent implements OnInit{
 
-  counter1 = signal(0);
-  counter2 = signal(0);
+  newItemName: string = '';
+  newItemPrice: number | null = null;
 
-  counterUpdate = effect(()=> [
-    console.log(`Counter 1: ${this.counter1()} \n Counter 2: ${ untracked(()=>  this.counter2()) } `)
-  ])
+  items = [
+    {name: 'product-A', price: 10},
+    {name: 'product-B', price: 15},
+    {name: 'product-C', price: 20},
+  ];
 
-  updateCounter1(){
-    this.counter1.update(() => this.counter1() +1);
+  itemList = signal(this.items);
 
+  addItem(){
+    if(this.newItemName && this.newItemPrice !== null){
+      const newItem = { name : this.newItemName , price : this.newItemPrice};
+      this.itemList.set([...this.itemList(), newItem]);
+
+      this.newItemName = '';
+      this.newItemPrice = null;
+    }
   }
-  updateCounter2(){
-    this.counter2.update(()=> this.counter2() + 1);
+
+  removeItem(item: {name: string; price: number}){
+    this.itemList.set(this.itemList().filter((i)=> i !==item));
   }
+
+  totalPrice =  computed(()=> {
+    return this.itemList().reduce((acc, curr) => acc + curr.price,0);
+  })
+
+
   ngOnInit(): void {
   
   }

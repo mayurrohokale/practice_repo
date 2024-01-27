@@ -1,13 +1,24 @@
 <div class="container">
     <div>
-        <h1>Counter1</h1>
-        <h2>{{counter1()}}</h2>
-        <button (click)="updateCounter1()">Update Counter 1</button>
-    </div>
+        <h2>Add Item</h2>
+        <form (ngSubmit)="addItem()">
+            <label for="itemName">Item Name:</label>
+            <input type="text" id="itemName" [(ngModel)]="newItemName" name="itemName" required>
+        
+            <label for="itemPrice">Item Price: </label>
+            <input type="number" id="itemPrice" [(ngModel)]="newItemPrice" name="itemPrice" required>
 
-    <div>
-        <h1>Counter2</h1>
-        <h2>{{counter2()}}</h2>
-        <button (click)="updateCounter2()">Update Counter 2</button>
+            <button class="addItem" type="submit">Add Item</button>
+        </form>
+    </div>
+    <div class="cart">
+            <h2>Cart</h2>
+            <ul>
+                <li *ngFor="let item of itemList()">
+                    {{item.name}} - {{item.price | currency: "USD"}}
+                    <button (click)="removeItem(item)">Remove</button>
+                </li>
+            </ul>
+            <p>Total Price: {{totalPrice() | currency: "USD"}}</p>
     </div>
 </div>

@@ -1,4 +1,4 @@
-import { AfterContentChecked, AfterContentInit, AfterViewInit, Component, ElementRef, HostBinding, HostListener, Inject, OnInit, ViewChild, WritableSignal, computed, signal } from '@angular/core';
+import { AfterContentChecked, AfterContentInit, AfterViewInit, Component, ElementRef, HostBinding, HostListener, Inject, OnInit, ViewChild, WritableSignal, computed, effect, signal } from '@angular/core';
 import { Directive } from '@angular/core';
 import { LoginComponent } from './login/login.component';
 import { DatePipe } from '@angular/common';
@@ -26,10 +26,17 @@ import { ConstantPool } from '@angular/compiler';
 export class AppComponent implements OnInit{
 
 
+
+  constructor(){
+    effect(() => {
+      console.log(`Count value: ${this.count()} \n Remaining Count ${this.remainingCount()}`);
+
+    })
+  }
   arr = signal([1,2,3,4]);
   sumArr = computed(()=> this.arr().reduce((sum, i) => sum + i));
 
-  count = signal(10);
+  count = signal(20);
   remainingCount = computed(() => 100-this.count());
 
 

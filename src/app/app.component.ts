@@ -29,8 +29,7 @@ export class AppComponent implements OnInit{
 
   constructor(){
     effect(() => {
-      console.log(`Count value: ${this.count()} \n Remaining Count ${this.remainingCount()}`);
-
+      if(this.sumArr() > 30) alert(`Max value Reached ${this.sumArr()}`);
     })
   }
   arr = signal([1,2,3,4]);

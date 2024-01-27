@@ -6,7 +6,7 @@
             {{value}}
         </li>
     </ul>
-    <button (click)="modifyArray()">Add value</button>
+    <button [disabled]="sumArr() > 30" (click)="modifyArray()">Add value</button>
 
     <h2>Sum of Array: {{sumArr()}}</h2>
 </div>
